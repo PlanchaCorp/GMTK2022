@@ -1,41 +1,58 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityAtoms;
 using UnityEngine.UI;
+using UnityAtoms;
 
-
-enum DiceDirection {
-    NONE, TOP, RIGHT, DOWN, LEFT
-}
 
 public class DiceMovement : MonoBehaviour
 {
-    Dictionary<DiceDirection, Vector3> movementDirections = new Dictionary<DiceDirection, Vector3>()
+    Dictionary<DiceDirections, Vector3> movementDirections = new Dictionary<DiceDirections, Vector3>()
     {
-        { DiceDirection.NONE, Vector3.zero },
-        { DiceDirection.TOP, Vector3.right },
-        { DiceDirection.RIGHT, Vector3.back },
-        { DiceDirection.DOWN, Vector3.left },
-        { DiceDirection.LEFT, Vector3.forward }
+        { DiceDirections.NONE, Vector3.zero },
+        { DiceDirections.TOP, Vector3.right },
+        { DiceDirections.RIGHT, Vector3.back },
+        { DiceDirections.DOWN, Vector3.left },
+        { DiceDirections.LEFT, Vector3.forward }
     };
-    Dictionary<DiceDirection, Vector3> rotateDirections = new Dictionary<DiceDirection, Vector3>()
+    Dictionary<DiceDirections, Vector3> rotateDirections = new Dictionary<DiceDirections, Vector3>()
     {
-        { DiceDirection.NONE, Vector3.zero },
-        { DiceDirection.TOP, Vector3.back },
-        { DiceDirection.RIGHT, Vector3.left },
-        { DiceDirection.DOWN, Vector3.forward },
-        { DiceDirection.LEFT, Vector3.right }
+        { DiceDirections.NONE, Vector3.zero },
+        { DiceDirections.TOP, Vector3.back },
+        { DiceDirections.RIGHT, Vector3.left },
+        { DiceDirections.DOWN, Vector3.forward },
+        { DiceDirections.LEFT, Vector3.right }
     };
 
     [SerializeField]
-    private UnityAtoms.AtomBaseVariable<Vector2> playerMovement;
+    private AtomBaseVariable<Vector2> playerMovement;
     [SerializeField]
-    private UnityAtoms.AtomBaseVariable<float> diceSpeed;
+    private AtomEvent<Vector2> onDiceMoveComplete;
+    [SerializeField]
+    private AtomBaseVariable<float> diceSpeed;
+    [SerializeField]
+    private AtomBaseVariable<bool> rollTopAllowed;
+    [SerializeField]
+    private AtomBaseVariable<bool> rollRightAllowed;
+    [SerializeField]
+    private AtomBaseVariable<bool> rollDownAllowed;
+    [SerializeField]
+    private AtomBaseVariable<bool> rollLeftAllowed;
 
     private bool isMovementInProgress = false;
     private float currentMovementProgress = 0;
-    private DiceDirection currentMovementDirection = DiceDirection.NONE;
+    private DiceDirections currentMovementDirection = DiceDirections.NONE;
+
+    private void Start() {
+        onDiceMoveComplete.Raise(transform.position);
+    }
+
+    private void Update()
+    {
+        if (isMovementInProgress) {
+            MoveDice();
+        }
+    }
     
     public void OnPlayerMovement() {
         if (!isMovementInProgress && playerMovement.Value.magnitude > 0) {
@@ -47,16 +64,9 @@ public class DiceMovement : MonoBehaviour
         isMovementInProgress = true;
         currentMovementProgress = 0;
         if (Mathf.Abs(playerMovement.Value.x) > Mathf.Abs(playerMovement.Value.y)) {
-            currentMovementDirection = playerMovement.Value.x > 0 ? DiceDirection.RIGHT : DiceDirection.LEFT;
+            currentMovementDirection = playerMovement.Value.x > 0 ? DiceDirections.RIGHT : DiceDirections.LEFT;
         } else if (Mathf.Abs(playerMovement.Value.x) < Mathf.Abs(playerMovement.Value.y)) {
-            currentMovementDirection = playerMovement.Value.y > 0 ? DiceDirection.TOP : DiceDirection.DOWN;
-        }
-    }
-
-    void Update()
-    {
-        if (isMovementInProgress) {
-            MoveDice();
+            currentMovementDirection = playerMovement.Value.y > 0 ? DiceDirections.TOP : DiceDirections.DOWN;
         }
     }
 
@@ -65,6 +75,7 @@ public class DiceMovement : MonoBehaviour
         currentMovementProgress += moveAmount;
         transform.Rotate(rotateDirections[currentMovementDirection] * moveAmount * 90, Space.World);
         transform.Translate(movementDirections[currentMovementDirection] * moveAmount, Space.World);
+        onDiceMoveComplete.Raise(transform.position);
 
         // Stop movement since we reached 1 case
         if (currentMovementProgress >= 1) {
