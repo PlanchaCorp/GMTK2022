@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2389251836204604489}
   - component: {fileID: 2389251836204604494}
   m_Layer: 0
-  m_Name: UnityCube
+  m_Name: GridCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
