@@ -39,6 +39,9 @@ public class DiceMovement : MonoBehaviour
     [SerializeField]
     private AtomBaseVariable<bool> rollLeftAllowed;
 
+    [SerializeField]
+    private Transform diceModel;
+
     private bool isMovementInProgress = false;
     private float currentMovementProgress = 0;
     private DiceDirections currentMovementDirection = DiceDirections.NONE;
@@ -61,20 +64,37 @@ public class DiceMovement : MonoBehaviour
     }
 
     private void InitMovement() {
-        isMovementInProgress = true;
-        currentMovementProgress = 0;
         if (Mathf.Abs(playerMovement.Value.x) > Mathf.Abs(playerMovement.Value.y)) {
-            currentMovementDirection = playerMovement.Value.x > 0 ? DiceDirections.RIGHT : DiceDirections.LEFT;
+            if (playerMovement.Value.x > 0 && rollRightAllowed.Value)
+                currentMovementDirection = DiceDirections.RIGHT;
+            else if (playerMovement.Value.x < 0 && rollLeftAllowed.Value)
+                currentMovementDirection = DiceDirections.LEFT;
         } else if (Mathf.Abs(playerMovement.Value.x) < Mathf.Abs(playerMovement.Value.y)) {
-            currentMovementDirection = playerMovement.Value.y > 0 ? DiceDirections.TOP : DiceDirections.DOWN;
+            if (playerMovement.Value.y > 0 && rollTopAllowed.Value)
+                currentMovementDirection = DiceDirections.TOP;
+            else if (playerMovement.Value.y < 0 && rollDownAllowed.Value)
+                currentMovementDirection = DiceDirections.DOWN;
+        }
+
+        if (
+            (currentMovementDirection == DiceDirections.RIGHT && !rollRightAllowed.Value) ||
+            (currentMovementDirection == DiceDirections.TOP && !rollTopAllowed.Value) ||
+            (currentMovementDirection == DiceDirections.LEFT && !rollLeftAllowed.Value) ||
+            (currentMovementDirection == DiceDirections.DOWN && !rollDownAllowed.Value)
+            ) {
+                currentMovementDirection = DiceDirections.NONE;
+        } else {
+            isMovementInProgress = true;
+            currentMovementProgress = 0;
         }
     }
 
     private void MoveDice() {
         float moveAmount = Mathf.Min(Time.deltaTime * diceSpeed.Value, 1 - currentMovementProgress);
         currentMovementProgress += moveAmount;
-        transform.Rotate(rotateDirections[currentMovementDirection] * moveAmount * 90, Space.World);
+        diceModel.Rotate(rotateDirections[currentMovementDirection] * moveAmount * 90, Space.World);
         transform.Translate(movementDirections[currentMovementDirection] * moveAmount, Space.World);
+        // diceModel.position = new Vector3(diceModel.position.x, 0, diceModel.position.z);
         onDiceMoveComplete.Raise(transform.position);
 
         // Stop movement since we reached 1 case

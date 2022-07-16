@@ -14,20 +14,29 @@ public class TerrainRules : MonoBehaviour
     private AtomBaseVariable<bool> rollDownAllowed;
     [SerializeField]
     private AtomBaseVariable<bool> rollLeftAllowed;
-    [SerializeField]
-    private Tilemap tilemap;
 
-    public void UpdateDicePossibleMovements(Vector2 dicePosition) {
-        List<DiceDirections> directions = new List<DiceDirections>();
-        // Debug.Log(tilemap.size + " - " + tilemap.cellBounds.x + "-" + tilemap.cellBounds.y + "-" + tilemap.cellBounds.z);
-        // Debug.Log(tilemap.origin);
-        Debug.Log(tilemap.GetInstantiatedObject(new Vector3Int(0, 0, 0)));
-        Debug.Log(tilemap.GetInstantiatedObject(new Vector3Int(0, 2, 0)));
-        Debug.Log(tilemap.HasTile(new Vector3Int(0, 0, 0)));
-        Debug.Log(tilemap.HasTile(new Vector3Int(0, 2, 0)));
-        // Debug.Log(tilemap.GetCellCenterLocal(new Vector3Int(0, 0, 0)));
-        // Debug.Log(tilemap.GetCellCenterWorld(new Vector3Int(0, 0, 0)));
-        // Debug.Log(tilemap.GetInstantiatedObject(new Vector3Int(1, 0, 0)));
-        // Debug.Log(tilemap.GetInstantiatedObject(new Vector3Int(2, 0, 0)));
+    private int topSideCollisionCount = 0;
+    private int rightSideCollisionCount = 0;
+    private int downSideCollisionCount = 0;
+    private int leftSideCollisionCount = 0;
+
+    public void UpdateTopMoveAvailability(bool available) {
+        topSideCollisionCount += available ? 1 : -1;
+        rollTopAllowed.Value = topSideCollisionCount > 0;
+    }
+
+    public void UpdateRightMoveAvailability(bool available) {
+        rightSideCollisionCount += available ? 1 : -1;
+        rollRightAllowed.Value = rightSideCollisionCount > 0;
+    }
+
+    public void UpdateDownMoveAvailability(bool available) {
+        downSideCollisionCount += available ? 1 : -1;
+        rollDownAllowed.Value = downSideCollisionCount > 0;
+    }
+
+    public void UpdateLeftMoveAvailability(bool available) {
+        leftSideCollisionCount += available ? 1 : -1;
+        rollLeftAllowed.Value = leftSideCollisionCount > 0;
     }
 }
