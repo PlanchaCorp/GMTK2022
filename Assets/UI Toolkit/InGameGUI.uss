@@ -1,0 +1,15 @@
+.restart {
+    width: 32px;
+    height: 32px;
+    border-radius: 32px;
+    border-left-width: 2px;
+    border-right-width: 2px;
+    border-top-width: 2px;
+    border-bottom-width: 2px;
+    border-color: rgb(106, 55, 113);
+    background-color: rgba(244, 140, 182, 0.22);
+}
+
+.restart:hover {
+    background-color: rgb(255, 255, 255);
+}

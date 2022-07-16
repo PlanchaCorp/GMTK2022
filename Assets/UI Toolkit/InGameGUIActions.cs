@@ -2,11 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityAtoms;
 
 public class InGameGUIActions : MonoBehaviour
 {     
     [SerializeField]
     private UIDocument uiDocument;
+
+    [SerializeField]
+    private AtomEvent<Void> restart;
 
     private Button restartButton;    
 
@@ -20,5 +24,6 @@ public class InGameGUIActions : MonoBehaviour
 
     private void OnRestart() {
         Debug.Log("Restart!");
+        restart.Raise();
     }
 }
