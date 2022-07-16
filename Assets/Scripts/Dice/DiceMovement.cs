@@ -7,6 +7,8 @@ using UnityAtoms;
 
 public class DiceMovement : MonoBehaviour
 {
+    private const float ROLL_HEIGHT = 0.25f;
+
     Dictionary<DiceDirections, Vector3> movementDirections = new Dictionary<DiceDirections, Vector3>()
     {
         { DiceDirections.NONE, Vector3.zero },
@@ -45,9 +47,11 @@ public class DiceMovement : MonoBehaviour
     private bool isMovementInProgress = false;
     private float currentMovementProgress = 0;
     private DiceDirections currentMovementDirection = DiceDirections.NONE;
+    private Vector3 initialPosition;
 
     private void Start() {
         onDiceMoveComplete.Raise(transform.position);
+        initialPosition = transform.position;
     }
 
     private void Update()
@@ -83,7 +87,9 @@ public class DiceMovement : MonoBehaviour
             (currentMovementDirection == DiceDirections.DOWN && !rollDownAllowed.Value)
             ) {
                 currentMovementDirection = DiceDirections.NONE;
-        } else {
+        }
+        
+        if (currentMovementDirection != DiceDirections.NONE) {
             isMovementInProgress = true;
             currentMovementProgress = 0;
         }
@@ -92,9 +98,11 @@ public class DiceMovement : MonoBehaviour
     private void MoveDice() {
         float moveAmount = Mathf.Min(Time.deltaTime * diceSpeed.Value, 1 - currentMovementProgress);
         currentMovementProgress += moveAmount;
+        // Move, rotate the dice, and simulate height
+        float heightAmount = ((0.5f - Mathf.Abs(currentMovementProgress - 0.5f)) * 2) * ROLL_HEIGHT;
         diceModel.Rotate(rotateDirections[currentMovementDirection] * moveAmount * 90, Space.World);
         transform.Translate(movementDirections[currentMovementDirection] * moveAmount, Space.World);
-        // diceModel.position = new Vector3(diceModel.position.x, 0, diceModel.position.z);
+        transform.position = new Vector3(diceModel.position.x, initialPosition.y + heightAmount, diceModel.position.z);
         onDiceMoveComplete.Raise(transform.position);
 
         // Stop movement since we reached 1 case
