@@ -29,7 +29,7 @@ public class DiceMovement : MonoBehaviour
     [SerializeField]
     private AtomBaseVariable<Vector2> playerMovement;
     [SerializeField]
-    private AtomEvent<Vector2> onDiceMoveComplete;
+    private AtomEvent<int> onDiceMoveComplete;
     [SerializeField]
     private AtomBaseVariable<float> diceSpeed;
     [SerializeField]
@@ -50,7 +50,7 @@ public class DiceMovement : MonoBehaviour
     private Vector3 initialPosition;
 
     private void Start() {
-        onDiceMoveComplete.Raise(transform.position);
+        onDiceMoveComplete.Raise((int)currentMovementDirection);
         initialPosition = transform.position;
     }
 
@@ -68,6 +68,7 @@ public class DiceMovement : MonoBehaviour
     }
 
     private void InitMovement() {
+        // Check which move is required by player input
         if (Mathf.Abs(playerMovement.Value.x) > Mathf.Abs(playerMovement.Value.y)) {
             if (playerMovement.Value.x > 0 && rollRightAllowed.Value)
                 currentMovementDirection = DiceDirections.RIGHT;
@@ -80,6 +81,7 @@ public class DiceMovement : MonoBehaviour
                 currentMovementDirection = DiceDirections.DOWN;
         }
 
+        // Deny move if no tile ahead
         if (
             (currentMovementDirection == DiceDirections.RIGHT && !rollRightAllowed.Value) ||
             (currentMovementDirection == DiceDirections.TOP && !rollTopAllowed.Value) ||
@@ -103,7 +105,7 @@ public class DiceMovement : MonoBehaviour
         diceModel.Rotate(rotateDirections[currentMovementDirection] * moveAmount * 90, Space.World);
         transform.Translate(movementDirections[currentMovementDirection] * moveAmount, Space.World);
         transform.position = new Vector3(diceModel.position.x, initialPosition.y + heightAmount, diceModel.position.z);
-        onDiceMoveComplete.Raise(transform.position);
+        onDiceMoveComplete.Raise((int)currentMovementDirection);
 
         // Stop movement since we reached 1 case
         if (currentMovementProgress >= 1) {
