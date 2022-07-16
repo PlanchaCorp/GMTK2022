@@ -7,7 +7,7 @@ using UnityAtoms;
 
 public class DiceMovement : MonoBehaviour
 {
-    private const float ROLL_HEIGHT = 0.25f;
+    private const float ROLL_HEIGHT = 0.18f;
 
     Dictionary<DiceDirections, Vector3> movementDirections = new Dictionary<DiceDirections, Vector3>()
     {
