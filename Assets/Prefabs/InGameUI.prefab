@@ -41,7 +41,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3306948846263515011}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
@@ -64,6 +64,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiDocument: {fileID: 3306948846263515036}
   restart: {fileID: 11400000, guid: c2a58cc77e849c553bf0e319ea6fdd02, type: 2}
+  menu: {fileID: 11400000, guid: dfca695a66186584295a0d61c834b83b, type: 2}
+  next: {fileID: 11400000, guid: fe1d336f6ec767f41829db597864ee6b, type: 2}
 --- !u!114 &2051779701
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
 #Body {
     background-image: url('project://database/Assets/Textures/water-bg.png?fileID=2800000&guid=d4725774f7c6aab4e901f7e7be53ba33&type=3#water-bg');
+    display: flex;
 }
