@@ -743,6 +743,8 @@ GameObject:
   - component: {fileID: 262691975}
   - component: {fileID: 262691977}
   - component: {fileID: 262691976}
+  - component: {fileID: 1467410927}
+  - component: {fileID: 1467410932}
   m_Layer: 0
   m_Name: Dice
   m_TagString: Untagged
@@ -878,6 +880,60 @@ MonoBehaviour:
     _eventInstancer: {fileID: 0}
     _variable: {fileID: 0}
     _variableInstancer: {fileID: 0}
+--- !u!114 &1467410927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4543331159710916445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c172f6fd8eaf8a0d69c65762e283bb68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loweringAmount: {fileID: 11400000, guid: d07883e973ed585d889cc0b96a033130, type: 2}
+  loweringSpeed: {fileID: 11400000, guid: beb8ed0c60cf514cf9a0cfbf54c4d179, type: 2}
+--- !u!114 &1467410932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4543331159710916445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2458933140c54c9db0aec7a69c1b617, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _developerDescription: 
+  _unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1467410927}
+        m_TargetAssemblyTypeName: OnGoalLowerer, Assembly-CSharp
+        m_MethodName: StartLowering
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _actionResponses: []
+  _conditions: []
+  _operator: 0
+  _replayEventBufferOnRegister: 1
+  _eventReference:
+    _usage: 0
+    _event: {fileID: 11400000, guid: f380a6e18d3729a5d91c908a67fc4e9f, type: 2}
+    _eventInstancer: {fileID: 0}
+    _collection: {fileID: 0}
+    _list: {fileID: 0}
+    _collectionInstancer: {fileID: 0}
+    _listInstancer: {fileID: 0}
 --- !u!1 &4792090031418976132
 GameObject:
   m_ObjectHideFlags: 0

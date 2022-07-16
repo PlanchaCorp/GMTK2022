@@ -41,8 +41,8 @@ public class DiceMovement : MonoBehaviour
     [SerializeField] private Transform diceModel;
 
     private bool isMovementInProgress = false;
-    private bool isGliding = false;
     private float currentMovementProgress = 0;
+    private bool isGliding = false;
     private DiceDirections currentMovementDirection = DiceDirections.NONE;
     private Vector3 initialPosition;
 
