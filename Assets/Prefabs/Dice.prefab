@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 113346639}
   - component: {fileID: 113346638}
   - component: {fileID: 113346637}
+  - component: {fileID: 8452464437380646208}
   m_Layer: 0
   m_Name: LeftSensor
   m_TagString: Untagged
@@ -42,7 +43,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 113346635}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -103,6 +104,22 @@ MonoBehaviour:
   _triggerOnEnter: 1
   _triggerOnExit: 0
   _triggerOnStay: 0
+--- !u!54 &8452464437380646208
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113346635}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1008301016
 GameObject:
   m_ObjectHideFlags: 0
@@ -115,6 +132,7 @@ GameObject:
   - component: {fileID: 1008301019}
   - component: {fileID: 1008301020}
   - component: {fileID: 1008301021}
+  - component: {fileID: 8297292611206469919}
   m_Layer: 0
   m_Name: TopSensor
   m_TagString: Untagged
@@ -145,7 +163,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1008301016}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -206,6 +224,22 @@ MonoBehaviour:
   _triggerOnEnter: 1
   _triggerOnExit: 0
   _triggerOnStay: 0
+--- !u!54 &8297292611206469919
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1008301016}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1284084848
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,6 +252,7 @@ GameObject:
   - component: {fileID: 1284084852}
   - component: {fileID: 1284084851}
   - component: {fileID: 1284084850}
+  - component: {fileID: 7602627089998343808}
   m_Layer: 0
   m_Name: DownSensor
   m_TagString: Untagged
@@ -248,7 +283,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1284084848}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -309,6 +344,22 @@ MonoBehaviour:
   _triggerOnEnter: 1
   _triggerOnExit: 0
   _triggerOnStay: 0
+--- !u!54 &7602627089998343808
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1284084848}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2107492355
 GameObject:
   m_ObjectHideFlags: 0
@@ -321,6 +372,7 @@ GameObject:
   - component: {fileID: 2107492359}
   - component: {fileID: 2107492358}
   - component: {fileID: 2107492357}
+  - component: {fileID: 834762766438192306}
   m_Layer: 0
   m_Name: RightSensor
   m_TagString: Untagged
@@ -351,7 +403,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2107492355}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -412,6 +464,22 @@ MonoBehaviour:
   _triggerOnEnter: 1
   _triggerOnExit: 0
   _triggerOnStay: 0
+--- !u!54 &834762766438192306
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2107492355}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &382674657211496060
 GameObject:
   m_ObjectHideFlags: 0
@@ -423,6 +491,7 @@ GameObject:
   - component: {fileID: 5127460440949637940}
   - component: {fileID: 8700950167816834294}
   - component: {fileID: 7907656698951118889}
+  - component: {fileID: 1717183873}
   m_Layer: 0
   m_Name: OneCollider
   m_TagString: Untagged
@@ -453,7 +522,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 382674657211496060}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -486,6 +555,22 @@ MonoBehaviour:
   _triggerOnEnter: 1
   _triggerOnExit: 0
   _triggerOnStay: 0
+--- !u!54 &1717183873
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 382674657211496060}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2843304583637589288
 GameObject:
   m_ObjectHideFlags: 0
@@ -532,6 +617,7 @@ GameObject:
   - component: {fileID: 7486655144088065391}
   - component: {fileID: 1062826290658492513}
   - component: {fileID: 1153297762286303862}
+  - component: {fileID: 1534621100}
   m_Layer: 0
   m_Name: FourCollider
   m_TagString: Untagged
@@ -562,7 +648,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3108844787377203120}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -595,6 +681,22 @@ MonoBehaviour:
   _triggerOnEnter: 1
   _triggerOnExit: 0
   _triggerOnStay: 0
+--- !u!54 &1534621100
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3108844787377203120}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &4543331159710916445
 GameObject:
   m_ObjectHideFlags: 0
@@ -1000,6 +1102,7 @@ GameObject:
   - component: {fileID: 4338869696116110527}
   - component: {fileID: 1504743631617461749}
   - component: {fileID: 2721395171289999713}
+  - component: {fileID: 1908108999}
   m_Layer: 0
   m_Name: default
   m_TagString: Untagged
@@ -1073,6 +1176,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!54 &1908108999
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4792090031418976132}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 1
 --- !u!1 &5124847792042507489
 GameObject:
   m_ObjectHideFlags: 0
@@ -1084,6 +1203,7 @@ GameObject:
   - component: {fileID: 3995140338699328251}
   - component: {fileID: 3697023031988535328}
   - component: {fileID: 2261040165729604376}
+  - component: {fileID: 1069025077}
   m_Layer: 0
   m_Name: FiveCollider
   m_TagString: Untagged
@@ -1114,7 +1234,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5124847792042507489}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -1147,6 +1267,22 @@ MonoBehaviour:
   _triggerOnEnter: 1
   _triggerOnExit: 0
   _triggerOnStay: 0
+--- !u!54 &1069025077
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5124847792042507489}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &5598584560796104948
 GameObject:
   m_ObjectHideFlags: 0
@@ -1195,6 +1331,7 @@ GameObject:
   - component: {fileID: 2341236773039488258}
   - component: {fileID: 8472853095197824225}
   - component: {fileID: 8112798248050766264}
+  - component: {fileID: 2118001593}
   m_Layer: 0
   m_Name: ThreeCollider
   m_TagString: Untagged
@@ -1225,7 +1362,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6210007514502614240}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -1258,6 +1395,22 @@ MonoBehaviour:
   _triggerOnEnter: 1
   _triggerOnExit: 0
   _triggerOnStay: 0
+--- !u!54 &2118001593
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6210007514502614240}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &8679221153538257184
 GameObject:
   m_ObjectHideFlags: 0
@@ -1269,6 +1422,7 @@ GameObject:
   - component: {fileID: 3973282258904606415}
   - component: {fileID: 3174809943404718402}
   - component: {fileID: 3672341950405228419}
+  - component: {fileID: 430188777}
   m_Layer: 0
   m_Name: TwoCollider
   m_TagString: Untagged
@@ -1299,7 +1453,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8679221153538257184}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -1332,6 +1486,22 @@ MonoBehaviour:
   _triggerOnEnter: 1
   _triggerOnExit: 0
   _triggerOnStay: 0
+--- !u!54 &430188777
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8679221153538257184}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &8702145272586089137
 GameObject:
   m_ObjectHideFlags: 0
@@ -1343,6 +1513,7 @@ GameObject:
   - component: {fileID: 5282284242455994307}
   - component: {fileID: 8934750903277484655}
   - component: {fileID: 580013931338652893}
+  - component: {fileID: 1463163264}
   m_Layer: 0
   m_Name: SixCollider
   m_TagString: Untagged
@@ -1373,7 +1544,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8702145272586089137}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -1406,3 +1577,19 @@ MonoBehaviour:
   _triggerOnEnter: 1
   _triggerOnExit: 0
   _triggerOnStay: 0
+--- !u!54 &1463163264
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8702145272586089137}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
