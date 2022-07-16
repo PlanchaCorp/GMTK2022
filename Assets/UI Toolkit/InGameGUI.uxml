@@ -1,0 +1,11 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="Container" style="width: 100%; height: 100%;">
+        <ui:VisualElement name="TopHalf" style="height: 50%;" />
+        <ui:VisualElement name="BottomHalf" style="height: 50%; flex-direction: row;">
+            <ui:VisualElement name="BottomLeftCorner" style="width: 50%;" />
+            <ui:VisualElement name="BottomRightCorner" style="width: 50%; flex-direction: row-reverse; align-items: flex-end;">
+                <ui:Button display-tooltip-when-elided="true" name="RestartButton" enable-rich-text="true" style="background-image: url(&apos;project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=-4528830608231651361&amp;guid=ef771454302c99fd48230ef4c215fa19&amp;type=3#arrow-left@2x&apos;); -unity-background-scale-mode: scale-and-crop; width: 64px; height: 64px; background-color: rgba(0, 0, 0, 0); border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
