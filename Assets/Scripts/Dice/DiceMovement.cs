@@ -26,25 +26,22 @@ public class DiceMovement : MonoBehaviour
         { DiceDirections.LEFT, Vector3.right }
     };
 
-    [SerializeField]
-    private AtomBaseVariable<Vector2> playerMovement;
-    [SerializeField]
-    private AtomEvent<int> onDiceMoveComplete;
-    [SerializeField]
-    private AtomBaseVariable<float> diceSpeed;
-    [SerializeField]
-    private AtomBaseVariable<bool> rollTopAllowed;
-    [SerializeField]
-    private AtomBaseVariable<bool> rollRightAllowed;
-    [SerializeField]
-    private AtomBaseVariable<bool> rollDownAllowed;
-    [SerializeField]
-    private AtomBaseVariable<bool> rollLeftAllowed;
+    [SerializeField] private AtomEvent<int> onDiceMoveComplete;
+    [SerializeField] private AtomBaseVariable<Vector2> playerMovement;
+    [SerializeField] private AtomBaseVariable<float> diceSpeed;
+    [SerializeField] private AtomBaseVariable<float> iceSpeedModifier;
+    [SerializeField] private AtomBaseVariable<bool> isOnIce;
 
-    [SerializeField]
-    private Transform diceModel;
+    [SerializeField] private AtomBaseVariable<bool> rollTopAllowed;
+    [SerializeField] private AtomBaseVariable<bool> rollRightAllowed;
+    [SerializeField] private AtomBaseVariable<bool> rollDownAllowed;
+    [SerializeField] private AtomBaseVariable<bool> rollLeftAllowed;
+
+
+    [SerializeField] private Transform diceModel;
 
     private bool isMovementInProgress = false;
+    private bool isGliding = false;
     private float currentMovementProgress = 0;
     private DiceDirections currentMovementDirection = DiceDirections.NONE;
     private Vector3 initialPosition;
@@ -67,6 +64,25 @@ public class DiceMovement : MonoBehaviour
         }
     }
 
+    private void TryGliding() {
+        // Prevent gliding if no tile ahead
+        if (
+            (currentMovementDirection == DiceDirections.TOP && !rollTopAllowed.Value) ||
+            (currentMovementDirection == DiceDirections.RIGHT && !rollRightAllowed.Value) ||
+            (currentMovementDirection == DiceDirections.DOWN && !rollDownAllowed.Value) ||
+            (currentMovementDirection == DiceDirections.LEFT && !rollLeftAllowed.Value)
+        ) {
+            currentMovementDirection = DiceDirections.NONE;
+        }
+
+        // Start movement
+        if (currentMovementDirection != DiceDirections.NONE) {
+            isMovementInProgress = true;
+            currentMovementProgress = 0;
+            isGliding = true;
+        }
+    }
+
     private void InitMovement() {
         // Check which move is required by player input
         if (Mathf.Abs(playerMovement.Value.x) > Mathf.Abs(playerMovement.Value.y)) {
@@ -74,11 +90,22 @@ public class DiceMovement : MonoBehaviour
                 currentMovementDirection = DiceDirections.RIGHT;
             else if (playerMovement.Value.x < 0 && rollLeftAllowed.Value)
                 currentMovementDirection = DiceDirections.LEFT;
+            else
+                currentMovementDirection = DiceDirections.NONE;
         } else if (Mathf.Abs(playerMovement.Value.x) < Mathf.Abs(playerMovement.Value.y)) {
             if (playerMovement.Value.y > 0 && rollTopAllowed.Value)
                 currentMovementDirection = DiceDirections.TOP;
             else if (playerMovement.Value.y < 0 && rollDownAllowed.Value)
                 currentMovementDirection = DiceDirections.DOWN;
+            else
+                currentMovementDirection = DiceDirections.NONE;
+        } else if (
+            (currentMovementDirection == DiceDirections.RIGHT && playerMovement.Value.x < 0) ||
+            (currentMovementDirection == DiceDirections.TOP && playerMovement.Value.y < 0) ||
+            (currentMovementDirection == DiceDirections.LEFT && playerMovement.Value.x > 0) ||
+            (currentMovementDirection == DiceDirections.DOWN && playerMovement.Value.y > 0)
+        ) {
+            currentMovementDirection = DiceDirections.NONE;
         }
 
         // Deny move if no tile ahead
@@ -91,6 +118,7 @@ public class DiceMovement : MonoBehaviour
                 currentMovementDirection = DiceDirections.NONE;
         }
         
+        // Start movement
         if (currentMovementDirection != DiceDirections.NONE) {
             isMovementInProgress = true;
             currentMovementProgress = 0;
@@ -98,20 +126,28 @@ public class DiceMovement : MonoBehaviour
     }
 
     private void MoveDice() {
-        float moveAmount = Mathf.Min(Time.deltaTime * diceSpeed.Value, 1 - currentMovementProgress);
+        float speed = isGliding ? diceSpeed.Value * iceSpeedModifier.Value : diceSpeed.Value;
+        float moveAmount = Mathf.Min(Time.deltaTime * speed, 1 - currentMovementProgress);
         currentMovementProgress += moveAmount;
-        // Move, rotate the dice, and simulate height
-        float heightAmount = ((0.5f - Mathf.Abs(currentMovementProgress - 0.5f)) * 2) * ROLL_HEIGHT;
-        diceModel.Rotate(rotateDirections[currentMovementDirection] * moveAmount * 90, Space.World);
+        if (!isGliding) {
+            // Move, rotate the dice, and simulate height
+            float heightAmount = ((0.5f - Mathf.Abs(currentMovementProgress - 0.5f)) * 2) * ROLL_HEIGHT;
+            diceModel.Rotate(rotateDirections[currentMovementDirection] * moveAmount * 90, Space.World);
+            transform.position = new Vector3(diceModel.position.x, initialPosition.y + heightAmount, diceModel.position.z);
+            onDiceMoveComplete.Raise((int)currentMovementDirection);
+        }
         transform.Translate(movementDirections[currentMovementDirection] * moveAmount, Space.World);
-        transform.position = new Vector3(diceModel.position.x, initialPosition.y + heightAmount, diceModel.position.z);
-        onDiceMoveComplete.Raise((int)currentMovementDirection);
 
         // Stop movement since we reached 1 case
         if (currentMovementProgress >= 1) {
+            isGliding = false;
             isMovementInProgress = false;
+            // Keep gliding if on ice
+            if (isOnIce.Value) {
+                TryGliding();
+            }
             // Keep rolling if keys are still pressed
-            if (playerMovement.Value.magnitude > 0) {
+            if (!isGliding && playerMovement.Value.magnitude > 0) {
                 InitMovement();
             }
         }
