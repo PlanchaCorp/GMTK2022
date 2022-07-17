@@ -48,6 +48,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPauseDisplayed: {fileID: 11400000, guid: b6a11a75221ceaed8bd540645fbee7bd, type: 2}
+  endLevelDelay: {fileID: 0}
+  endLevelEvent: {fileID: 0}
 --- !u!114 &517877876502455013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,7 +126,9 @@ MonoBehaviour:
   - M_Camel
   - M_Snake
   - M_Caterpillar
-  tundraLevels: []
+  tundraLevels:
+  - T_Telescope
+  - T_Catalyst
   beachLevels: []
   mainMenuScene: 
 --- !u!114 &6394040069159287462
