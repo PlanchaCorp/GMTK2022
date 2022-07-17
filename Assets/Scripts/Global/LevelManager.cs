@@ -12,10 +12,14 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private string[] beachLevels;
     [SerializeField] private string mainMenuScene;
 
+    [SerializeField] private AtomEvent<Void> allGoalReached;
+
     private string nextSceneName;
+    private int totalGoal;
 
     private void Start() {
         nextSceneName = GetNextSceneName();
+        totalGoal = GameObject.FindGameObjectsWithTag("Goal").Length;
     }
 
     private string GetNextSceneName() {
@@ -41,5 +45,13 @@ public class LevelManager : MonoBehaviour
 
     public void GoToNextLevel() {
         SceneManager.LoadScene(nextSceneName);
+    }
+
+    public void OnGoalReachedChange(int goalCount) {
+        Debug.Log(goalCount + " goals reached");
+        if (goalCount == totalGoal) {
+            Debug.Log("Win!");
+            allGoalReached.Raise();
+        }
     }
 }

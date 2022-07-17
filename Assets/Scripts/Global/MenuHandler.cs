@@ -8,7 +8,7 @@ public class MenuHandler : MonoBehaviour
 {
     [SerializeField] private AtomBaseVariable<bool> isPauseDisplayed;
     [SerializeField] private AtomBaseVariable<float> endLevelDelay;
-    [SerializeField] private AtomEvent<Void> endLevelEvent;
+    [SerializeField] private AtomEvent<Void> finishEvent;
  
     public void TogglePauseMenu() {
         isPauseDisplayed.Value = !isPauseDisplayed.Value;
@@ -20,7 +20,7 @@ public class MenuHandler : MonoBehaviour
  
     private IEnumerator IEndLevel() {
         yield return new WaitForSeconds(endLevelDelay.Value);
-        endLevelEvent.Raise();
+        // finishEvent.Raise();
         Debug.Log("Raised end level event");
     }
 

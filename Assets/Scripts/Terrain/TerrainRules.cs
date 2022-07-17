@@ -6,37 +6,42 @@ using UnityAtoms;
 
 public class TerrainRules : MonoBehaviour
 {
-    [SerializeField]
-    private AtomBaseVariable<bool> rollTopAllowed;
-    [SerializeField]
-    private AtomBaseVariable<bool> rollRightAllowed;
-    [SerializeField]
-    private AtomBaseVariable<bool> rollDownAllowed;
-    [SerializeField]
-    private AtomBaseVariable<bool> rollLeftAllowed;
+    private const float DICE_COLLISION_DELAY = 0.2f;
 
-    private int topSideCollisionCount = 0;
-    private int rightSideCollisionCount = 0;
-    private int downSideCollisionCount = 0;
-    private int leftSideCollisionCount = 0;
+    [SerializeField]
+    private RollCapability[] rollCapabilities;
 
-    public void UpdateTopMoveAvailability(bool available) {
-        topSideCollisionCount += available ? 1 : -1;
-        rollTopAllowed.Value = topSideCollisionCount > 0;
+    private void Start() {
+        foreach (RollCapability rollCapability in rollCapabilities) {
+            rollCapability.onTopAvailableEvent.Register((collider) => this.UpdateMoveAvailability(collider, rollCapability.rollTopAllowed, true));
+            rollCapability.onTopBlockedEvent.Register((collider) => this.UpdateMoveAvailability(collider, rollCapability.rollTopAllowed, false));
+            rollCapability.onRightAvailableEvent.Register((collider) => this.UpdateMoveAvailability(collider, rollCapability.rollRightAllowed, true));
+            rollCapability.onRightBlockedEvent.Register((collider) => this.UpdateMoveAvailability(collider, rollCapability.rollRightAllowed, false));
+            rollCapability.onDownAvailableEvent.Register((collider) => this.UpdateMoveAvailability(collider, rollCapability.rollDownAllowed, true));
+            rollCapability.onDownBlockedEvent.Register((collider) => this.UpdateMoveAvailability(collider, rollCapability.rollDownAllowed, false));
+            rollCapability.onLeftAvailableEvent.Register((collider) => this.UpdateMoveAvailability(collider, rollCapability.rollLeftAllowed, true));
+            rollCapability.onLeftBlockedEvent.Register((collider) => this.UpdateMoveAvailability(collider, rollCapability.rollLeftAllowed, false));
+        }
     }
 
-    public void UpdateRightMoveAvailability(bool available) {
-        rightSideCollisionCount += available ? 1 : -1;
-        rollRightAllowed.Value = rightSideCollisionCount > 0;
+    private void UpdateMoveAvailability(Collider collider, AtomBaseVariable<int> rollAllowed, bool addContact) {
+        if (collider.tag == "Ground" || collider.tag == "Ice") {
+            rollAllowed.Value += addContact ? 1 : -1;
+        } else if (collider.tag == "DiceCore") {
+            rollAllowed.Value += addContact ? -1 : +1;
+        }
     }
 
-    public void UpdateDownMoveAvailability(bool available) {
-        downSideCollisionCount += available ? 1 : -1;
-        rollDownAllowed.Value = downSideCollisionCount > 0;
-    }
-
-    public void UpdateLeftMoveAvailability(bool available) {
-        leftSideCollisionCount += available ? 1 : -1;
-        rollLeftAllowed.Value = leftSideCollisionCount > 0;
+    private void OnDestroy() {
+        foreach (RollCapability rollCapability in rollCapabilities) {
+            rollCapability.onTopAvailableEvent.UnregisterAll();
+            rollCapability.onTopBlockedEvent.UnregisterAll();
+            rollCapability.onRightAvailableEvent.UnregisterAll();
+            rollCapability.onRightBlockedEvent.UnregisterAll();
+            rollCapability.onDownAvailableEvent.UnregisterAll();
+            rollCapability.onDownBlockedEvent.UnregisterAll();
+            rollCapability.onLeftAvailableEvent.UnregisterAll();
+            rollCapability.onLeftBlockedEvent.UnregisterAll();
+        }
     }
 }

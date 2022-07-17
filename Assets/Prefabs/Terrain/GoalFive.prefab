@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3151484958944505881}
   m_Layer: 0
   m_Name: GoalFive
-  m_TagString: Untagged
+  m_TagString: Goal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49,7 +49,7 @@ GameObject:
   - component: {fileID: 4389386312742873218}
   m_Layer: 0
   m_Name: default
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce6f93ad15357461e9ab20df7ec6e6dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  successEvent: {fileID: 11400000, guid: f380a6e18d3729a5d91c908a67fc4e9f, type: 2}
+  goalReachedCount: {fileID: 11400000, guid: 1e480bc21e8d9d86fa13e9983e50d5fd, type: 2}
   goalValue: 5
 --- !u!114 &3741633743330177212
 MonoBehaviour:
