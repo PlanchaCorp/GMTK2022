@@ -21,7 +21,7 @@ public class LevelMenuAction : MonoBehaviour
     private Button button3;
     private Button button4;
     private Button button5;
-    private button closeButton;
+    private Button closeButton;
     private LevelManager levelManager;
     private string[] levelToLoad;
     
