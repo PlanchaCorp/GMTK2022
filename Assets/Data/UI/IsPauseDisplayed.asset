@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 593b70f10d7bb41c78d42c7e8b6609da, type: 3}
   m_Name: IsPauseDisplayed
   m_EditorClassIdentifier: 
-  _developerDescription: 
+  _developerDescription: When this is ON nothing should move
   _id: 
   _value: 0
   _changed: {fileID: 11400000, guid: 06fe9b19df0f8a14da377101a4fbae9d, type: 2}

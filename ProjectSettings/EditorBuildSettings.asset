@@ -5,11 +5,26 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/SampleScene.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Levels/AbstractMeadow/M_Camel.unity
+    guid: 4276efc39c23b24e7a2146ce6722fc8a
+  - enabled: 1
+    path: Assets/Scenes/Levels/AbstractMeadow/M_Caterpillar.unity
+    guid: b100347f1c0bdcb80800affe52d7c8da
+  - enabled: 1
+    path: Assets/Scenes/Levels/AbstractMeadow/M_Mantis.unity
+    guid: 9039c3c7943c322f1b653ec651420bfe
+  - enabled: 1
+    path: Assets/Scenes/Levels/AbstractMeadow/M_Snail.unity
+    guid: 4c729edfa77fb05e8aba891d62b229a5
+  - enabled: 1
+    path: Assets/Scenes/Levels/AbstractMeadow/M_Snake.unity
+    guid: fa2673dfc62f2affda199bc3c4a138ab
   - enabled: 1
     path: Assets/Scenes/MovementScene.unity
     guid: 127ab63fe7dfa585d806ed9e6a746839
-  - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 8fcbc1155e12a318aacc49ddf8c5cfc8, type: 2}

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0635ac2f70594bd3a31a5ced16469dc, type: 3}
   m_Name: Pause
   m_EditorClassIdentifier: 
-  _developerDescription: 
+  _developerDescription: Open pause menu
   _replayBufferSize: 1
   _inspectorRaiseValue: 1
