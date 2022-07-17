@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _developerDescription: When this is ON nothing should move
   _id: 
-  _value: 0
-  _changed: {fileID: 11400000, guid: 06fe9b19df0f8a14da377101a4fbae9d, type: 2}
+  _value: 1
+  _changed: {fileID: 0}
   _changedWithHistory: {fileID: 0}
   _triggerChangedOnOnEnable: 0
   _triggerChangedWithHistoryOnOnEnable: 0

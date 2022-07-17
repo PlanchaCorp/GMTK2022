@@ -11,43 +11,55 @@ public class MainMenuActions : MonoBehaviour
     private UIDocument uiDocument;
 
     [SerializeField]
-    private AtomEvent<Void> goToBegin;
+    private AtomEvent<string> loadLevel;
     [SerializeField]
-    private AtomEvent<Void> onToggleLevelSelect;
+    private AtomEvent<string> openFolder;
 
     private Button beginButton;    
-    private Button levelSelectButton;   
+    private Button openMeadowButton;
+    private Button openToundraButton;
+    private Button openBeachButton;
+
+    private VisualElement levelSelectionWindow;
     
-    private VisualElement levelSelectGUI;
 
     void OnEnable() {
         var root = uiDocument.rootVisualElement;
-        levelSelectGUI = root.Q<VisualElement>("LevelSelectGUI");
         beginButton = root.Q<Button>("BeginButton");
-        levelSelectButton = root.Q<Button>("LevelSelectButton");
+        openMeadowButton = root.Q<Button>("Meadow");
+        openToundraButton = root.Q<Button>("Toundra");
+        openBeachButton = root.Q<Button>("Beach");
+        levelSelectionWindow =  root.Q<VisualElement>("LevelSelect");
+
         beginButton.clickable.clicked += OnClickBegin;
-        levelSelectButton.clickable.clicked += OnClickLevelSelect;
+        openMeadowButton.clickable.clicked += OnClickMeadowSelect;
+        openToundraButton.clickable.clicked += OnClickToundraSelect;
+        openBeachButton.clickable.clicked += OnClickBeachSelect;
+        
     }
 
-    private void OnDestroy() {
+    private void OnDisable() {
         beginButton.clickable.clicked -= OnClickBegin;
-        levelSelectButton.clickable.clicked -= OnClickLevelSelect;
+        openMeadowButton.clickable.clicked -= OnClickMeadowSelect;
+        openToundraButton.clickable.clicked -= OnClickToundraSelect;
+        openBeachButton.clickable.clicked -= OnClickBeachSelect;
     }
 
     private void OnClickBegin() {
         Debug.Log("Begin!");
-        goToBegin.Raise();
+        loadLevel.Raise("M_Camel");
     }
-    private void OnClickLevelSelect() {
-        Debug.Log("Select!");
-        onToggleLevelSelect.Raise();
+    private void OnClickMeadowSelect() {
+        Debug.Log("Select Folder!");
+        openFolder.Raise("Meadow");
     }
-    public void ToggleLevelSelect(bool enableLevelSelect) {
-        if (enableLevelSelect){
-            levelSelectGUI.style.display = DisplayStyle.Flex;
-            // title.text = "Pause.exe";
-        } else if (levelSelectGUI != null && levelSelectGUI.style != null) {
-            levelSelectGUI.style.display = DisplayStyle.None;
-        }
+    private void OnClickToundraSelect() {
+        Debug.Log("Select Toundra!");
+        openFolder.Raise("Toundra");
     }
+    private void OnClickBeachSelect() {
+        Debug.Log("Select Beach!");
+        openFolder.Raise("Beach");
+    }
+
 }
