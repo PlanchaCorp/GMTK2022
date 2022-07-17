@@ -55,8 +55,9 @@ public class PauseActions : MonoBehaviour
         next.Raise();
         
     }
-    public void onPause(bool pauseEnabled){
-        if(pauseEnabled){
+    public void OnPause(bool isPauseDisplayed){
+        Debug.Log(isPauseDisplayed + " - " + modal.style.display);
+        if (isPauseDisplayed) {
             modal.style.display = DisplayStyle.Flex;
             title.text = "Pause.exe";
         } else if (modal != null && modal.style != null) {

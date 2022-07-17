@@ -24,14 +24,6 @@ public class TerrainRules : MonoBehaviour
         }
     }
 
-    private void UpdateMoveAvailability(Collider collider, AtomBaseVariable<int> rollAllowed, bool addContact) {
-        if (collider.tag == "Ground" || collider.tag == "Ice") {
-            rollAllowed.Value += addContact ? 1 : -1;
-        } else if (collider.tag == "DiceCore") {
-            rollAllowed.Value += addContact ? -1 : +1;
-        }
-    }
-
     private void OnDestroy() {
         foreach (RollCapability rollCapability in rollCapabilities) {
             rollCapability.onTopAvailableEvent.UnregisterAll();
@@ -42,6 +34,16 @@ public class TerrainRules : MonoBehaviour
             rollCapability.onDownBlockedEvent.UnregisterAll();
             rollCapability.onLeftAvailableEvent.UnregisterAll();
             rollCapability.onLeftBlockedEvent.UnregisterAll();
+        }
+    }
+
+    private void UpdateMoveAvailability(Collider collider, AtomBaseVariable<int> rollAllowed, bool addContact) {
+        if (collider == null)
+            return;
+        if (collider.tag == "Ground" || collider.tag == "Ice") {
+            rollAllowed.Value += addContact ? 1 : -1;
+        } else if (collider.tag == "DiceCore") {
+            rollAllowed.Value += addContact ? -1 : +1;
         }
     }
 }

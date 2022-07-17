@@ -14,6 +14,10 @@ public class MenuHandler : MonoBehaviour
         isPauseDisplayed.Value = !isPauseDisplayed.Value;
     }
 
+    private void Destroy() {
+        StopAllCoroutines();
+    }
+
     public void OnGoalReached() {
         StartCoroutine("IEndLevel");
     }
@@ -22,10 +26,5 @@ public class MenuHandler : MonoBehaviour
         yield return new WaitForSeconds(endLevelDelay.Value);
         // finishEvent.Raise();
         Debug.Log("Raised end level event");
-    }
-
-
-    public void RestartLevel() {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

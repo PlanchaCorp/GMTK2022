@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6394040069159287462}
   - component: {fileID: 5616730599168565072}
   - component: {fileID: 8827111237083290}
+  - component: {fileID: 8593793084660725301}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -99,8 +100,8 @@ MonoBehaviour:
     m_ActionName: PlayerMap/Pause[/Keyboard/p,/Keyboard/escape]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7870018716876832901}
-        m_TargetAssemblyTypeName: MenuHandler, Assembly-CSharp
+      - m_Target: {fileID: 2973516785815492600}
+        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: RestartLevel
         m_Mode: 1
         m_Arguments:
@@ -247,7 +248,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2973516785815492600}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: RestartLevel
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -269,3 +270,29 @@ MonoBehaviour:
     _list: {fileID: 0}
     _collectionInstancer: {fileID: 0}
     _listInstancer: {fileID: 0}
+--- !u!114 &8593793084660725301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4154902880760604952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd0ac2fae676f6b9e9f15d1e445a5682, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  variables:
+  - {fileID: 11400000, guid: eedba12b6d26cf8cdb66ba0edd6a4550, type: 2}
+  - {fileID: 11400000, guid: 68aea3311fa98f76ea1f20766b0ffea7, type: 2}
+  - {fileID: 11400000, guid: 0112644c76b11528a936f5c25e185542, type: 2}
+  - {fileID: 11400000, guid: 37ef6e80be520e47e907735afceb4c72, type: 2}
+  - {fileID: 11400000, guid: dc080bc316decfa1fa304420412826da, type: 2}
+  - {fileID: 11400000, guid: dde7a94325181c6eea75fdbfca37977a, type: 2}
+  - {fileID: 11400000, guid: ffc9f3ec42c022d3183dad593793101b, type: 2}
+  - {fileID: 11400000, guid: 24b83f3198390c9e88fa4ceff75b3b8b, type: 2}
+  - {fileID: 11400000, guid: 4ebbf47f678e3a502a5eb981dccd9aa8, type: 2}
+  - {fileID: 11400000, guid: 1e480bc21e8d9d86fa13e9983e50d5fd, type: 2}
+  - {fileID: 11400000, guid: cccb3d7670327134c93225cbc6c0e475, type: 2}
+  - {fileID: 11400000, guid: 37b88e4054cf9996face218a2018b581, type: 2}
+  - {fileID: 11400000, guid: b6a11a75221ceaed8bd540645fbee7bd, type: 2}

@@ -48,12 +48,17 @@ public class DiceMovement : MonoBehaviour
 
     private float currentMovementProgress = 0;
     private bool isGliding = false;
-    private DiceDirections currentMovementDirection = DiceDirections.NONE;
+    private DiceDirections currentMovementDirection;
     private Vector3 initialPosition;
 
     private void Start() {
+        currentMovementDirection = DiceDirections.NONE;
         onDiceMoveComplete.Raise((int)currentMovementDirection);
         initialPosition = transform.position;
+    }
+
+    private void Destroy() {
+        StopAllCoroutines();
     }
 
     private void Update()
@@ -64,7 +69,13 @@ public class DiceMovement : MonoBehaviour
     }
     
     public void OnPlayerMovement() {
-        if (!isMoving.Value && dicesMovingCount.Value == 0 && playerMovement.Value.magnitude > 0 && !isPauseDisplayed.Value && !isEndLevelTriggered.Value) {
+        if (
+            !isMoving.Value && 
+            dicesMovingCount.Value == 0 && 
+            playerMovement.Value.magnitude > 0 && 
+            !isPauseDisplayed.Value && 
+            !isEndLevelTriggered.Value
+        ) {
             TryMovement();
         }
     }

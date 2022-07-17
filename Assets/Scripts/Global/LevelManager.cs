@@ -17,18 +17,19 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     private AtomBaseVariable<int> hitCount;
 
+    private string currentSceneName;
     private string nextSceneName;
     private int totalGoal;
 
     private void Start() {
         hitCount.Value = 0;
         isEndLevelTriggered.Value = false;
+        currentSceneName = SceneManager.GetActiveScene().name;
         nextSceneName = GetNextSceneName();
         totalGoal = GameObject.FindGameObjectsWithTag("Goal").Length;
     }
 
     private string GetNextSceneName() {
-        string currentSceneName = SceneManager.GetActiveScene().name;
         int i = 0;
         foreach(string meadowLevel in meadowLevels) {
             if (meadowLevel == currentSceneName)
@@ -48,12 +49,12 @@ public class LevelManager : MonoBehaviour
         return mainMenuScene;
     }
 
-    public void RestartLevel() {
-        // SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
     public void GoToNextLevel() {
         SceneManager.LoadScene(nextSceneName);
+    }
+
+    public void RestartLevel() {
+        SceneManager.LoadScene(currentSceneName);
     }
 
     public void OnGoalReachedChange(int goalCount) {

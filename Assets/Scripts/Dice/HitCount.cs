@@ -16,6 +16,10 @@ public class HitCount : MonoBehaviour
         onDiceMoveComplete.Register(this.TryRegisterHit);
     }
 
+    private void Destroy() {
+        lastHitTime = 0;
+    }
+
     private void Detroy() {
         onDiceMoveComplete.Unregister(this.TryRegisterHit);
     }

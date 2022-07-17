@@ -184,10 +184,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UILevel
       objectReference: {fileID: 0}
-    - target: {fileID: 3306948846263515036, guid: b3f7c64d0957abf36942a51f7585903f, type: 3}
-      propertyPath: m_ParentUI
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 3306948846263515037, guid: b3f7c64d0957abf36942a51f7585903f, type: 3}
       propertyPath: m_RootOrder
       value: 0
