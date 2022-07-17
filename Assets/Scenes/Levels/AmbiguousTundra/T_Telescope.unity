@@ -1030,7 +1030,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.86495095, g: 0.9056604, b: 0.6963332, a: 1}
+  m_Color: {r: 0.69803923, g: 0.9056604, b: 0.90588236, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -1433,11 +1433,11 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1403620772}
-  - {fileID: 890227191}
-  - {fileID: 1402492847}
   - {fileID: 1015003785}
   - {fileID: 47960758}
   - {fileID: 1188171019}
+  - {fileID: 890227191}
+  - {fileID: 1402492847}
   - {fileID: 204804305}
   - {fileID: 1276007061}
   m_Father: {fileID: 4703612630192262465}
