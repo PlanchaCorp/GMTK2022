@@ -10,6 +10,7 @@ public class DataResetter : MonoBehaviour
     void Awake()
     {
         foreach(AtomBaseVariable variable in variables) {
+            Debug.Log("resetting " + variable.name);
             variable.Reset();
         }
     }

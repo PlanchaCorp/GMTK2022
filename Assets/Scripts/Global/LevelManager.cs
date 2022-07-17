@@ -17,8 +17,8 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     private AtomBaseVariable<int> hitCount;
 
-    private string currentSceneName;
-    private string nextSceneName;
+    private static string currentSceneName;
+    private static string nextSceneName;
     private int totalGoal;
 
     private void Start() {
@@ -36,11 +36,13 @@ public class LevelManager : MonoBehaviour
                 return i + 1 < meadowLevels.Length ? meadowLevels[i + 1] : mainMenuScene;
             i++;
         }
+        i = 0;
         foreach(string tundraLevel in tundraLevels) {
             if (tundraLevel == currentSceneName)
                 return i + 1 < tundraLevels.Length ? tundraLevels[i + 1] : mainMenuScene;
             i++;
         }
+        i = 0;
         foreach(string beachLevel in beachLevels) {
             if (beachLevel == currentSceneName)
                 return i + 1 < beachLevels.Length ? beachLevels[i + 1] : mainMenuScene;
@@ -50,6 +52,7 @@ public class LevelManager : MonoBehaviour
     }
 
     public void GoToNextLevel() {
+        Debug.Log("Loading " + nextSceneName);
         SceneManager.LoadScene(nextSceneName);
     }
 
