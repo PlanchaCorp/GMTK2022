@@ -14,9 +14,6 @@ public struct RollCapability {
     public AtomBaseVariable<int> rollDownAllowed;
     [SerializeField]
     public AtomBaseVariable<int> rollLeftAllowed;
-
-    [SerializeField]
-    public AtomBaseVariable<bool> hasDiceInFront;
     
     [SerializeField]
     public AtomEvent<Collider> onTopAvailableEvent;

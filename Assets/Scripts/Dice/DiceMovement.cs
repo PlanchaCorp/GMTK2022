@@ -149,12 +149,12 @@ public class DiceMovement : MonoBehaviour
             float heightAmount = ((0.5f - Mathf.Abs(currentMovementProgress - 0.5f)) * 2) * ROLL_HEIGHT;
             diceModel.Rotate(rotateDirections[currentMovementDirection] * moveAmount * 90, Space.World);
             transform.position = new Vector3(diceModel.position.x, initialPosition.y + heightAmount, diceModel.position.z);
-            onDiceMoveComplete.Raise((int)currentMovementDirection);
         }
         transform.Translate(movementDirections[currentMovementDirection] * moveAmount, Space.World);
 
         // Stop movement since we reached 1 case
         if (currentMovementProgress >= 1) {
+            // bool wasGliding = isGliding;
             isGliding = false;
             isMoving.Value = false;
             dicesMovingCount.Value--;
@@ -162,9 +162,8 @@ public class DiceMovement : MonoBehaviour
             if (isOnIce.Value) {
                 TryGliding();
             }
-            // Keep rolling if keys are still pressed
-            if (!isGliding && playerMovement.Value.magnitude > 0) {
-                TryMovement(true);
+            if (!isGliding) {
+                onDiceMoveComplete.Raise((int)currentMovementDirection);
             }
         }
     }

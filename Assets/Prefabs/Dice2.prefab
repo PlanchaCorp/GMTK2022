@@ -746,6 +746,7 @@ GameObject:
   - component: {fileID: 262691976}
   - component: {fileID: 1467410927}
   - component: {fileID: 1467410932}
+  - component: {fileID: 1779155283512179378}
   m_Layer: 0
   m_Name: Dice2
   m_TagString: Untagged
@@ -782,7 +783,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b7e73eb98248e148a589ebd0fb24f81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onDiceMoveComplete: {fileID: 11400000, guid: 3f6bba02df128302fa84e138489205e6, type: 2}
+  onDiceMoveComplete: {fileID: 11400000, guid: 0c802e9750081fbaab81e04aaf23c8f5, type: 2}
   playerMovement: {fileID: 11400000, guid: eedba12b6d26cf8cdb66ba0edd6a4550, type: 2}
   diceSpeed: {fileID: 11400000, guid: d833ba838b2c11d4597b226f9886ec1f, type: 2}
   iceSpeedModifier: {fileID: 11400000, guid: e613b98b8fd8e2e0d9586a1d8e7ad596, type: 2}
@@ -946,6 +947,44 @@ MonoBehaviour:
     _list: {fileID: 0}
     _collectionInstancer: {fileID: 0}
     _listInstancer: {fileID: 0}
+--- !u!114 &1779155283512179378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4543331159710916445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050ff37b5550f4b7e9bdf8b985aff484, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _developerDescription: 
+  _unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 262691975}
+        m_TargetAssemblyTypeName: DiceMovement, Assembly-CSharp
+        m_MethodName: OnPlayerMovement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _actionResponses: []
+  _conditions: []
+  _operator: 0
+  _replayEventBufferOnRegister: 1
+  _eventReference:
+    _usage: 0
+    _event: {fileID: 11400000, guid: 0c802e9750081fbaab81e04aaf23c8f5, type: 2}
+    _eventInstancer: {fileID: 0}
+    _variable: {fileID: 0}
+    _variableInstancer: {fileID: 0}
 --- !u!1 &4792090031418976132
 GameObject:
   m_ObjectHideFlags: 0
