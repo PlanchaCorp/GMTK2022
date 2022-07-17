@@ -2,5 +2,5 @@
     <ui:Template name="InGameGUI" src="project://database/Assets/UI%20Toolkit/InGameGUI.uxml?fileID=9197481963319205126&amp;guid=192de406ede989949b6b895a0ad81480&amp;type=3#InGameGUI" />
     <ui:Template name="InGameModal" src="project://database/Assets/UI%20Toolkit/InGameModal.uxml?fileID=9197481963319205126&amp;guid=1be6dcffb7f468d4cb87c2fe4e27d9eb&amp;type=3#InGameModal" />
     <ui:Instance template="InGameGUI" name="InGameGUI" style="position: absolute; left: 8px; top: -4px; right: -8px; bottom: 4px;" />
-    <ui:Instance template="InGameModal" name="InGameModal" style="position: absolute; left: 20%; top: 10%; right: 20%; bottom: 10%;" />
+    <ui:Instance template="InGameModal" name="InGameModal" style="position: absolute; left: 20%; top: 10%; right: 20%; bottom: 10%; display: flex;" />
 </ui:UXML>

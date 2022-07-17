@@ -13,6 +13,7 @@ public class InGameActions : MonoBehaviour
     private AtomEvent<Void> restart;
     [SerializeField]
     private AtomBaseVariable<bool> isPausedDisplayed;
+    [SerializeField] private AtomEvent<Void> togglePause;
     
 
     private Button pauseButton;
@@ -36,12 +37,11 @@ public class InGameActions : MonoBehaviour
     }
 
     private void OnClickRestart() {
-        Debug.Log("Restart!");
         restart.Raise();
     }
     private void OnClickPause() {
-        Debug.Log("Pause!");
         isPausedDisplayed.Value = !isPausedDisplayed.Value;
+        togglePause.Raise();
     }
 
     public void displayMovesCount(int count){

@@ -118,6 +118,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1858830709950234142}
     m_Modifications:
+    - target: {fileID: 2973516785815492600, guid: 0b8c942b95241f32fa8c0dcfd55fd31e, type: 3}
+      propertyPath: togglePause
+      value: 
+      objectReference: {fileID: 11400000, guid: c70b3ca396ed7ef478d5445b9ce36f53, type: 2}
+    - target: {fileID: 2973516785815492600, guid: 0b8c942b95241f32fa8c0dcfd55fd31e, type: 3}
+      propertyPath: isPauseDisplayed
+      value: 
+      objectReference: {fileID: 11400000, guid: b6a11a75221ceaed8bd540645fbee7bd, type: 2}
     - target: {fileID: 4154902880760604952, guid: 0b8c942b95241f32fa8c0dcfd55fd31e, type: 3}
       propertyPath: m_Name
       value: LevelManager

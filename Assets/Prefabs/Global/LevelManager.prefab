@@ -51,6 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPauseDisplayed: {fileID: 11400000, guid: b6a11a75221ceaed8bd540645fbee7bd, type: 2}
+  togglePause: {fileID: 11400000, guid: c70b3ca396ed7ef478d5445b9ce36f53, type: 2}
   endLevelDelay: {fileID: 11400000, guid: b02bf53b9f8b6c1f1866753c86a2469c, type: 2}
   finishEvent: {fileID: 0}
 --- !u!114 &517877876502455013
@@ -248,7 +249,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2973516785815492600}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: RestartLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
