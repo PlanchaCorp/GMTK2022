@@ -14,7 +14,7 @@ public class PauseActions : MonoBehaviour
     [SerializeField]
     private AtomEvent<Void> restart;
     [SerializeField]
-    private AtomEvent<Void> menu;
+    private AtomEvent<string> menu;
     [SerializeField]
     private AtomEvent<Void> next;
     [SerializeField] private AtomBaseVariable<bool> isPauseDisplayed;
@@ -50,7 +50,7 @@ public class PauseActions : MonoBehaviour
     }
     private void OnClickMenu() {
         Debug.Log("Menu!");
-        menu.Raise();
+        menu.Raise("MainMenu");
     }
     private void OnClickNext() {
         Debug.Log("Next!");
