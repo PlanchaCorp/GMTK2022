@@ -7,9 +7,9 @@ using UnityAtoms.BaseAtoms;
 
 public class LevelManager : MonoBehaviour
 {
-    [SerializeField] private string[] meadowLevels;
-    [SerializeField] private string[] tundraLevels;
-    [SerializeField] private string[] beachLevels;
+    [SerializeField] public string[] meadowLevels;
+    [SerializeField] public string[] tundraLevels;
+    [SerializeField] public string[] beachLevels;
     [SerializeField] private string mainMenuScene;
 
     [SerializeField] private AtomEvent<Void> allGoalReached;
@@ -63,5 +63,8 @@ public class LevelManager : MonoBehaviour
             isEndLevelTriggered.Value = true;
             allGoalReached.Raise();
         }
+    }
+    public void LoadSceneByName(string name) {
+        SceneManager.LoadScene(name);
     }
 }
