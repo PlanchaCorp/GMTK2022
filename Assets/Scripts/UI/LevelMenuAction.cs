@@ -21,6 +21,7 @@ public class LevelMenuAction : MonoBehaviour
     private Button button3;
     private Button button4;
     private Button button5;
+    private button closeButton;
     private LevelManager levelManager;
     private string[] levelToLoad;
     
@@ -42,6 +43,7 @@ public class LevelMenuAction : MonoBehaviour
         button3.clickable.clicked += onClickButton3;
         button4.clickable.clicked += onClickButton4;
         button5.clickable.clicked += onClickButton5;
+        closeButton.clickable.clicked += onCloseClick;
     }
 
     private void onClickButton1(){
@@ -64,6 +66,9 @@ public class LevelMenuAction : MonoBehaviour
     }
 
 
+    public void onCloseClick(){
+        levelSelectionWindow.style.display = DisplayStyle.None;
+    }
     public void OpenWindow(string folder){
         levelSelectionWindow.style.display = DisplayStyle.Flex;
         this.folder = folder;
