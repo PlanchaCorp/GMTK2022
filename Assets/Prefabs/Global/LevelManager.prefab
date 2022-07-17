@@ -154,7 +154,7 @@ MonoBehaviour:
   - T_level03
   - T_level04
   - T_level05
-  mainMenuScene: MovementScene
+  mainMenuScene: MainMenu
   allGoalReached: {fileID: 11400000, guid: 4dbe903e9c4e0893295839b2a777e545, type: 2}
   isEndLevelTriggered: {fileID: 11400000, guid: 37b88e4054cf9996face218a2018b581, type: 2}
   hitCount: {fileID: 11400000, guid: cccb3d7670327134c93225cbc6c0e475, type: 2}
