@@ -45,6 +45,7 @@ public class PauseActions : MonoBehaviour
 
     private void OnClickRestart() {
         Debug.Log("Restart!");
+        UnsetPause();
         restart.Raise();
     }
     private void OnClickMenu() {
@@ -53,9 +54,14 @@ public class PauseActions : MonoBehaviour
     }
     private void OnClickNext() {
         Debug.Log("Next!");
+        UnsetPause();
         next.Raise();
-        
     }
+    private void UnsetPause() {
+        isPauseDisplayed.Value = false;
+        OnPause();
+    }
+
     public void OnPause() {
         if (isPauseDisplayed.Value) {
             modal.style.display = DisplayStyle.Flex;
