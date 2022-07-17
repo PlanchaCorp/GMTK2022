@@ -284,23 +284,6 @@ MonoBehaviour:
   m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
---- !u!1 &2051779696 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3306948846263515011, guid: b3f7c64d0957abf36942a51f7585903f, type: 3}
-  m_PrefabInstance: {fileID: 3306948845290475820}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2051779700
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2051779696}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99be8f08902727d45b2b2d5d32d87f74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &3306948845290475820
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -312,10 +295,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIDocument
       objectReference: {fileID: 0}
-    - target: {fileID: 3306948846263515036, guid: b3f7c64d0957abf36942a51f7585903f, type: 3}
-      propertyPath: sourceAsset
-      value: 
-      objectReference: {fileID: 9197481963319205126, guid: 3d4a09cdfe4199946b39b238777fcdab, type: 3}
     - target: {fileID: 3306948846263515037, guid: b3f7c64d0957abf36942a51f7585903f, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -360,6 +339,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3306948846263515038, guid: b3f7c64d0957abf36942a51f7585903f, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3f7c64d0957abf36942a51f7585903f, type: 3}

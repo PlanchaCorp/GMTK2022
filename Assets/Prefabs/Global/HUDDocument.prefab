@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 3306948846263515036}
   - component: {fileID: 2051779700}
   - component: {fileID: 2051779701}
+  - component: {fileID: 2051779705}
+  - component: {fileID: 2051779706}
   m_Layer: 5
   m_Name: HUDDocument
   m_TagString: Untagged
@@ -48,7 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PanelSettings: {fileID: 11400000, guid: 72782e6e224d58f35af78a1141b2c466, type: 2}
   m_ParentUI: {fileID: 0}
-  sourceAsset: {fileID: 9197481963319205126, guid: 3d4a09cdfe4199946b39b238777fcdab, type: 3}
+  sourceAsset: {fileID: 9197481963319205126, guid: 76b7a0ba00248dd4a88d48115759ffa5, type: 3}
   m_SortingOrder: 0
 --- !u!114 &2051779700
 MonoBehaviour:
@@ -105,3 +107,56 @@ MonoBehaviour:
     _eventInstancer: {fileID: 0}
     _variable: {fileID: 0}
     _variableInstancer: {fileID: 0}
+--- !u!114 &2051779705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3306948846263515011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050ff37b5550f4b7e9bdf8b985aff484, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _developerDescription: 
+  _unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2051779706}
+        m_TargetAssemblyTypeName: InGameMenuActions, Assembly-CSharp
+        m_MethodName: displayMovesCount
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _actionResponses: []
+  _conditions: []
+  _operator: 0
+  _replayEventBufferOnRegister: 1
+  _eventReference:
+    _usage: 0
+    _event: {fileID: 11400000, guid: ab1550d38eb6eef408fe7ea20d512bb4, type: 2}
+    _eventInstancer: {fileID: 0}
+    _variable: {fileID: 0}
+    _variableInstancer: {fileID: 0}
+--- !u!114 &2051779706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3306948846263515011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d859316b41854db4ca67f73f38b7739d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiDocument: {fileID: 3306948846263515036}
+  restart: {fileID: 11400000, guid: c2a58cc77e849c553bf0e319ea6fdd02, type: 2}
+  pause: {fileID: 11400000, guid: 06fe9b19df0f8a14da377101a4fbae9d, type: 2}
