@@ -17,8 +17,8 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     private AtomBaseVariable<int> hitCount;
 
-    private static string currentSceneName;
-    private static string nextSceneName;
+    private string currentSceneName;
+    private string nextSceneName;
     private int totalGoal;
 
     private void Start() {
@@ -57,7 +57,7 @@ public class LevelManager : MonoBehaviour
     }
 
     public void RestartLevel(bool force) {
-        if (force || !isEndLevelTriggered) {
+        if (force || !isEndLevelTriggered.Value) {
             SceneManager.LoadScene(currentSceneName);
         }
     }

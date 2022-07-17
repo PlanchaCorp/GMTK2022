@@ -6,12 +6,18 @@ using UnityAtoms;
 public class DataResetter : MonoBehaviour
 {
     [SerializeField] AtomBaseVariable[] variables;
+    [SerializeField] AtomEventBase[] events;
 
     void Awake()
     {
+    }
+
+    void Destroy() {
         foreach(AtomBaseVariable variable in variables) {
-            Debug.Log("resetting " + variable.name);
             variable.Reset();
+        }
+        foreach(AtomEventBase atomEvent in events) {
+            atomEvent.UnregisterAll();
         }
     }
 

@@ -13,7 +13,7 @@ public class MenuHandler : MonoBehaviour
  
     public void TogglePauseMenu() {
         isPauseDisplayed.Value = !isPauseDisplayed.Value;
-        togglePause.Raise();
+        // togglePause.Raise();
     }
 
     private void Destroy() {
