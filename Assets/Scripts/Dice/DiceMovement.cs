@@ -8,6 +8,7 @@ using UnityAtoms;
 public class DiceMovement : MonoBehaviour
 {
     private const float ROLL_HEIGHT = 0.18f;
+    private const float MULTI_ALLOWED_DELAY = 0.025f;
 
     Dictionary<DiceDirections, Vector3> movementDirections = new Dictionary<DiceDirections, Vector3>()
     {
@@ -31,17 +32,19 @@ public class DiceMovement : MonoBehaviour
     [SerializeField] private AtomBaseVariable<float> diceSpeed;
     [SerializeField] private AtomBaseVariable<float> iceSpeedModifier;
     [SerializeField] private AtomBaseVariable<bool> isOnIce;
+    [SerializeField] private AtomBaseVariable<bool> isMoving;
 
-    [SerializeField] private AtomBaseVariable<bool> rollTopAllowed;
-    [SerializeField] private AtomBaseVariable<bool> rollRightAllowed;
-    [SerializeField] private AtomBaseVariable<bool> rollDownAllowed;
-    [SerializeField] private AtomBaseVariable<bool> rollLeftAllowed;
+    [SerializeField] private AtomBaseVariable<int> rollTopAllowed;
+    [SerializeField] private AtomBaseVariable<int> rollRightAllowed;
+    [SerializeField] private AtomBaseVariable<int> rollDownAllowed;
+    [SerializeField] private AtomBaseVariable<int> rollLeftAllowed;
+
     [SerializeField] private AtomBaseVariable<bool> isPauseDisplayed;
+    [SerializeField] private AtomBaseVariable<int> dicesMovingCount; 
 
 
     [SerializeField] private Transform diceModel;
 
-    private bool isMovementInProgress = false;
     private float currentMovementProgress = 0;
     private bool isGliding = false;
     private DiceDirections currentMovementDirection = DiceDirections.NONE;
@@ -54,49 +57,48 @@ public class DiceMovement : MonoBehaviour
 
     private void Update()
     {
-        if (isMovementInProgress && !isPauseDisplayed.Value) {
+        if (isMoving.Value && !isPauseDisplayed.Value) {
             MoveDice();
         }
     }
     
     public void OnPlayerMovement() {
-        if (!isMovementInProgress && playerMovement.Value.magnitude > 0 && !isPauseDisplayed.Value) {
-            InitMovement();
+        if (!isMoving.Value && dicesMovingCount.Value == 0 && playerMovement.Value.magnitude > 0 && !isPauseDisplayed.Value) {
+            TryMovement();
         }
     }
 
     private void TryGliding() {
         // Prevent gliding if no tile ahead
         if (
-            (currentMovementDirection == DiceDirections.TOP && !rollTopAllowed.Value) ||
-            (currentMovementDirection == DiceDirections.RIGHT && !rollRightAllowed.Value) ||
-            (currentMovementDirection == DiceDirections.DOWN && !rollDownAllowed.Value) ||
-            (currentMovementDirection == DiceDirections.LEFT && !rollLeftAllowed.Value)
+            (currentMovementDirection == DiceDirections.TOP && rollTopAllowed.Value <= 0) ||
+            (currentMovementDirection == DiceDirections.RIGHT && rollRightAllowed.Value <= 0) ||
+            (currentMovementDirection == DiceDirections.DOWN && rollDownAllowed.Value <= 0) ||
+            (currentMovementDirection == DiceDirections.LEFT && rollLeftAllowed.Value <= 0)
         ) {
             currentMovementDirection = DiceDirections.NONE;
         }
 
         // Start movement
         if (currentMovementDirection != DiceDirections.NONE) {
-            isMovementInProgress = true;
-            currentMovementProgress = 0;
+            InitMovement(true);
             isGliding = true;
         }
     }
 
-    private void InitMovement() {
+    private void TryMovement(bool isSuccessive = false) {
         // Check which move is required by player input
         if (Mathf.Abs(playerMovement.Value.x) > Mathf.Abs(playerMovement.Value.y)) {
-            if (playerMovement.Value.x > 0 && rollRightAllowed.Value)
+            if (playerMovement.Value.x > 0 && rollRightAllowed.Value > 0)
                 currentMovementDirection = DiceDirections.RIGHT;
-            else if (playerMovement.Value.x < 0 && rollLeftAllowed.Value)
+            else if (playerMovement.Value.x < 0 && rollLeftAllowed.Value > 0)
                 currentMovementDirection = DiceDirections.LEFT;
             else
                 currentMovementDirection = DiceDirections.NONE;
         } else if (Mathf.Abs(playerMovement.Value.x) < Mathf.Abs(playerMovement.Value.y)) {
-            if (playerMovement.Value.y > 0 && rollTopAllowed.Value)
+            if (playerMovement.Value.y > 0 && rollTopAllowed.Value > 0)
                 currentMovementDirection = DiceDirections.TOP;
-            else if (playerMovement.Value.y < 0 && rollDownAllowed.Value)
+            else if (playerMovement.Value.y < 0 && rollDownAllowed.Value > 0)
                 currentMovementDirection = DiceDirections.DOWN;
             else
                 currentMovementDirection = DiceDirections.NONE;
@@ -111,19 +113,31 @@ public class DiceMovement : MonoBehaviour
 
         // Deny move if no tile ahead
         if (
-            (currentMovementDirection == DiceDirections.RIGHT && !rollRightAllowed.Value) ||
-            (currentMovementDirection == DiceDirections.TOP && !rollTopAllowed.Value) ||
-            (currentMovementDirection == DiceDirections.LEFT && !rollLeftAllowed.Value) ||
-            (currentMovementDirection == DiceDirections.DOWN && !rollDownAllowed.Value)
+            (currentMovementDirection == DiceDirections.RIGHT && rollRightAllowed.Value <= 0) ||
+            (currentMovementDirection == DiceDirections.TOP && rollTopAllowed.Value <= 0) ||
+            (currentMovementDirection == DiceDirections.LEFT && rollLeftAllowed.Value <= 0) ||
+            (currentMovementDirection == DiceDirections.DOWN && rollDownAllowed.Value <= 0)
             ) {
                 currentMovementDirection = DiceDirections.NONE;
         }
         
         // Start movement
         if (currentMovementDirection != DiceDirections.NONE) {
-            isMovementInProgress = true;
-            currentMovementProgress = 0;
+            InitMovement(isSuccessive);
         }
+    }
+
+    private void InitMovement(bool isSuccessive) {
+        isMoving.Value = true;
+        currentMovementProgress = 0;
+        if (isSuccessive)
+            dicesMovingCount.Value++;
+        else
+            StartCoroutine("IncreaseDiceMovingCount");
+    }
+    private IEnumerator IncreaseDiceMovingCount() {
+        yield return new WaitForSeconds(MULTI_ALLOWED_DELAY);
+        dicesMovingCount.Value++;
     }
 
     private void MoveDice() {
@@ -142,14 +156,15 @@ public class DiceMovement : MonoBehaviour
         // Stop movement since we reached 1 case
         if (currentMovementProgress >= 1) {
             isGliding = false;
-            isMovementInProgress = false;
+            isMoving.Value = false;
+            dicesMovingCount.Value--;
             // Keep gliding if on ice
             if (isOnIce.Value) {
                 TryGliding();
             }
             // Keep rolling if keys are still pressed
             if (!isGliding && playerMovement.Value.magnitude > 0) {
-                InitMovement();
+                TryMovement(true);
             }
         }
     }

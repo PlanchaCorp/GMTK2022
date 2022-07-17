@@ -24,6 +24,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/AbstractMeadow/M_Snake.unity
     guid: fa2673dfc62f2affda199bc3c4a138ab
   - enabled: 1
+    path: Assets/Scenes/Levels/AmbiguousTundra/T_Telescope.unity
+    guid: 2138153c9734c02b19977f71e732ba27
+  - enabled: 1
+    path: Assets/Scenes/Levels/AmbiguousTundra/T_Catalyst.unity
+    guid: f9eec4ff512a8b5498fdd40480ba146e
+  - enabled: 1
     path: Assets/Scenes/MovementScene.unity
     guid: 127ab63fe7dfa585d806ed9e6a746839
   m_configObjects:
