@@ -5,7 +5,7 @@ using UnityEngine.UIElements;
 using UnityAtoms;
 
 
-public class PauseMenuActions : MonoBehaviour
+public class PauseActions : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField]
@@ -36,6 +36,11 @@ public class PauseMenuActions : MonoBehaviour
         nextButton.clickable.clicked += OnClickNext;
     }
 
+    private void OnDestroy() {
+        restartButton.clickable.clicked -= OnClickRestart;
+        menuButton.clickable.clicked -= OnClickMenu;
+        nextButton.clickable.clicked += OnClickNext;
+    }
 
     private void OnClickRestart() {
         Debug.Log("Restart!");

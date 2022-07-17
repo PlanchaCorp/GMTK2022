@@ -48,6 +48,10 @@ public class LevelManager : MonoBehaviour
         return mainMenuScene;
     }
 
+    public void RestartLevel() {
+        // SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
     public void GoToNextLevel() {
         SceneManager.LoadScene(nextSceneName);
     }

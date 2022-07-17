@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using UnityAtoms;
 
-public class InGameMenuActions : MonoBehaviour
+public class InGameActions : MonoBehaviour
 {
     [SerializeField]
     private UIDocument uiDocument;
@@ -18,7 +18,8 @@ public class InGameMenuActions : MonoBehaviour
     private Button pauseButton;
     private Button restartButton;
     private Label moveCountLabel;
-    void OnEnable()
+
+    private void OnEnable()
     {
         var root = uiDocument.rootVisualElement;
         pauseButton = root.Q<Button>("Pause");
@@ -28,6 +29,12 @@ public class InGameMenuActions : MonoBehaviour
         pauseButton.clickable.clicked += OnClickPause;
         restartButton.clickable.clicked += OnClickRestart;
     }
+
+    private void OnDestroy() {
+        pauseButton.clickable.clicked -= OnClickPause;
+        restartButton.clickable.clicked -= OnClickRestart;
+    }
+
     private void OnClickRestart() {
         Debug.Log("Restart!");
         restart.Raise();

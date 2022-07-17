@@ -1,0 +1,5 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="TitleGUI" src="project://database/Assets/UI%20Toolkit/TitleGUI.uxml?fileID=9197481963319205126&amp;guid=8d5d51a706e70c5949d6bf8c2c484b09&amp;type=3#TitleGUI" />
+    <ui:Instance template="TitleGUI" name="TitleGUI" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0;" />
+    <ui:VisualElement name="LevelSelectGUI" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0;" />
+</ui:UXML>
