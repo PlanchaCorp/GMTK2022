@@ -213,6 +213,10 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2973516785815492600, guid: 0b8c942b95241f32fa8c0dcfd55fd31e, type: 3}
+      propertyPath: hitCount
+      value: 
+      objectReference: {fileID: 11400000, guid: cccb3d7670327134c93225cbc6c0e475, type: 2}
+    - target: {fileID: 2973516785815492600, guid: 0b8c942b95241f32fa8c0dcfd55fd31e, type: 3}
       propertyPath: isLevelEnded
       value: 
       objectReference: {fileID: 11400000, guid: 37b88e4054cf9996face218a2018b581, type: 2}
