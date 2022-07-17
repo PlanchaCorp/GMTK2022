@@ -794,6 +794,7 @@ MonoBehaviour:
   rollDownAllowed: {fileID: 11400000, guid: dde7a94325181c6eea75fdbfca37977a, type: 2}
   rollLeftAllowed: {fileID: 11400000, guid: ffc9f3ec42c022d3183dad593793101b, type: 2}
   isPauseDisplayed: {fileID: 11400000, guid: b6a11a75221ceaed8bd540645fbee7bd, type: 2}
+  isEndLevelTriggered: {fileID: 11400000, guid: 37b88e4054cf9996face218a2018b581, type: 2}
   dicesMovingCount: {fileID: 11400000, guid: f90923c18918d30078d652e7f4a9fe35, type: 2}
   diceModel: {fileID: 4338869696116110527}
 --- !u!114 &262691977
@@ -941,7 +942,7 @@ MonoBehaviour:
   _replayEventBufferOnRegister: 1
   _eventReference:
     _usage: 0
-    _event: {fileID: 11400000, guid: f380a6e18d3729a5d91c908a67fc4e9f, type: 2}
+    _event: {fileID: 11400000, guid: 4dbe903e9c4e0893295839b2a777e545, type: 2}
     _eventInstancer: {fileID: 0}
     _collection: {fileID: 0}
     _list: {fileID: 0}

@@ -13,11 +13,13 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private string mainMenuScene;
 
     [SerializeField] private AtomEvent<Void> allGoalReached;
+    [SerializeField] private AtomBaseVariable<bool> isEndLevelTriggered;
 
     private string nextSceneName;
     private int totalGoal;
 
     private void Start() {
+        isEndLevelTriggered.Value = false;
         nextSceneName = GetNextSceneName();
         totalGoal = GameObject.FindGameObjectsWithTag("Goal").Length;
     }
@@ -48,9 +50,9 @@ public class LevelManager : MonoBehaviour
     }
 
     public void OnGoalReachedChange(int goalCount) {
-        Debug.Log(goalCount + " goals reached");
         if (goalCount == totalGoal) {
             Debug.Log("Win!");
+            isEndLevelTriggered.Value = true;
             allGoalReached.Raise();
         }
     }
