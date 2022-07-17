@@ -37,6 +37,7 @@ public class LevelMenuAction : MonoBehaviour
         button3 = root.Q<Button>("Button3");
         button4 = root.Q<Button>("Button4");
         button5 = root.Q<Button>("Button5");
+        closeButton = root.Q<Button>("WindowsButton");
 
         button1.clickable.clicked += onClickButton1;
         button2.clickable.clicked += onClickButton2;

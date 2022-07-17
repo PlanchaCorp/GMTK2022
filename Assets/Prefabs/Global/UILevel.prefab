@@ -66,7 +66,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiDocument: {fileID: 3306948846263515036}
   restart: {fileID: 11400000, guid: c2a58cc77e849c553bf0e319ea6fdd02, type: 2}
-  menu: {fileID: 11400000, guid: dfca695a66186584295a0d61c834b83b, type: 2}
+  menu: {fileID: 11400000, guid: 1c324814e98b5a841b1eb0910f595e1f, type: 2}
   next: {fileID: 11400000, guid: fe1d336f6ec767f41829db597864ee6b, type: 2}
   isPauseDisplayed: {fileID: 11400000, guid: b6a11a75221ceaed8bd540645fbee7bd, type: 2}
 --- !u!114 &2051779705
