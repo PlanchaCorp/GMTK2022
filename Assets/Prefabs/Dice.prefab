@@ -790,6 +790,7 @@ MonoBehaviour:
   rollRightAllowed: {fileID: 11400000, guid: 7ef83d265d66b611f945bc4ae8f7712b, type: 2}
   rollDownAllowed: {fileID: 11400000, guid: 5dafcecb367013d5a8c7ae3e6750f0f1, type: 2}
   rollLeftAllowed: {fileID: 11400000, guid: ad214132b6ab8b1a9803348b4de32135, type: 2}
+  isPauseDisplayed: {fileID: 11400000, guid: b6a11a75221ceaed8bd540645fbee7bd, type: 2}
   diceModel: {fileID: 4338869696116110527}
 --- !u!114 &262691977
 MonoBehaviour:
@@ -837,8 +838,16 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 423fe66a-daa7-49c2-988d-90f5103a459d
     m_ActionName: PlayerMap/New action[/Keyboard/t]
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: KeyboardScheme
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d2da59b2-1b18-4ff2-9b2f-0dc6e46e8327
+    m_ActionName: PlayerMap/Restart[/Keyboard/r]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 551e3b71-2924-4ac1-8b77-c4d9a7a4248b
+    m_ActionName: PlayerMap/Validate[/Keyboard/space,/Keyboard/enter]
+  m_NeverAutoSwitchControlSchemes: 1
+  m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerMap
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}

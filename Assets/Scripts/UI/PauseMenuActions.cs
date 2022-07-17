@@ -53,13 +53,13 @@ public class PauseMenuActions : MonoBehaviour
     public void onPause(bool pauseEnabled){
         if(pauseEnabled){
             modal.style.display = DisplayStyle.Flex;
-            title.text="Pause.exe";
-        } else {
+            title.text = "Pause.exe";
+        } else if (modal != null && modal.style != null) {
             modal.style.display = DisplayStyle.None;
         }
     }
     public void onFinish(){
             modal.style.display = DisplayStyle.Flex;
-            title.text="Finish.exe";
+            title.text = "Finish.exe";
     }
 }

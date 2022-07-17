@@ -15,9 +15,27 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "New action",
+                    "name": "Pause",
                     "type": "Button",
                     "id": "423fe66a-daa7-49c2-988d-90f5103a459d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Restart",
+                    "type": "Button",
+                    "id": "d2da59b2-1b18-4ff2-9b2f-0dc6e46e8327",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Validate",
+                    "type": "Button",
+                    "id": "551e3b71-2924-4ac1-8b77-c4d9a7a4248b",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -138,11 +156,55 @@
                 {
                     "name": "",
                     "id": "702df128-9324-4c10-82aa-9a855747d0ed",
-                    "path": "<Keyboard>/t",
+                    "path": "<Keyboard>/p",
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyboardScheme",
-                    "action": "New action",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3f9b971d-62cf-4b68-b831-30a8ead1d71d",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardScheme",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "061c0b0f-460c-4e62-8627-8be4e6f9e81f",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardScheme",
+                    "action": "Restart",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "293a56cd-4744-402d-8cca-77c3301c36ff",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardScheme",
+                    "action": "Validate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "34e29f9a-6b7e-4e24-8619-57b96e1fcfdc",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardScheme",
+                    "action": "Validate",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

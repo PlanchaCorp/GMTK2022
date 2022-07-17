@@ -36,6 +36,7 @@ public class DiceMovement : MonoBehaviour
     [SerializeField] private AtomBaseVariable<bool> rollRightAllowed;
     [SerializeField] private AtomBaseVariable<bool> rollDownAllowed;
     [SerializeField] private AtomBaseVariable<bool> rollLeftAllowed;
+    [SerializeField] private AtomBaseVariable<bool> isPauseDisplayed;
 
 
     [SerializeField] private Transform diceModel;
@@ -53,13 +54,13 @@ public class DiceMovement : MonoBehaviour
 
     private void Update()
     {
-        if (isMovementInProgress) {
+        if (isMovementInProgress && !isPauseDisplayed.Value) {
             MoveDice();
         }
     }
     
     public void OnPlayerMovement() {
-        if (!isMovementInProgress && playerMovement.Value.magnitude > 0) {
+        if (!isMovementInProgress && playerMovement.Value.magnitude > 0 && !isPauseDisplayed.Value) {
             InitMovement();
         }
     }
