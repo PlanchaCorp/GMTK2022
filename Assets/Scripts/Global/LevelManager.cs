@@ -14,11 +14,14 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField] private AtomEvent<Void> allGoalReached;
     [SerializeField] private AtomBaseVariable<bool> isEndLevelTriggered;
+    [SerializeField]
+    private AtomBaseVariable<int> hitCount;
 
     private string nextSceneName;
     private int totalGoal;
 
     private void Start() {
+        hitCount.Value = 0;
         isEndLevelTriggered.Value = false;
         nextSceneName = GetNextSceneName();
         totalGoal = GameObject.FindGameObjectsWithTag("Goal").Length;

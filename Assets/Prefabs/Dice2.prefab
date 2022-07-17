@@ -747,6 +747,7 @@ GameObject:
   - component: {fileID: 1467410927}
   - component: {fileID: 1467410932}
   - component: {fileID: 1779155283512179378}
+  - component: {fileID: 1328279975813756331}
   m_Layer: 0
   m_Name: Dice2
   m_TagString: Untagged
@@ -986,6 +987,20 @@ MonoBehaviour:
     _eventInstancer: {fileID: 0}
     _variable: {fileID: 0}
     _variableInstancer: {fileID: 0}
+--- !u!114 &1328279975813756331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4543331159710916445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23cee4239070a24d585b7cfac60d5e9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onDiceMoveComplete: {fileID: 11400000, guid: 0c802e9750081fbaab81e04aaf23c8f5, type: 2}
+  hitCount: {fileID: 11400000, guid: cccb3d7670327134c93225cbc6c0e475, type: 2}
 --- !u!1 &4792090031418976132
 GameObject:
   m_ObjectHideFlags: 0
