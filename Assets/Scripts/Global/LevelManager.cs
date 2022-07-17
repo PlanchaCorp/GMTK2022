@@ -53,13 +53,14 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene(nextSceneName);
     }
 
-    public void RestartLevel() {
-        SceneManager.LoadScene(currentSceneName);
+    public void RestartLevel(bool force) {
+        if (force || !isEndLevelTriggered) {
+            SceneManager.LoadScene(currentSceneName);
+        }
     }
 
     public void OnGoalReachedChange(int goalCount) {
         if (goalCount == totalGoal) {
-            Debug.Log("Win!");
             isEndLevelTriggered.Value = true;
             allGoalReached.Raise();
         }

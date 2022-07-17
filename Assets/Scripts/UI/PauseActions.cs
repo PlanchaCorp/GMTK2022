@@ -44,16 +44,13 @@ public class PauseActions : MonoBehaviour
     }
 
     private void OnClickRestart() {
-        Debug.Log("Restart!");
         UnsetPause();
         restart.Raise();
     }
     private void OnClickMenu() {
-        Debug.Log("Menu!");
         menu.Raise("MainMenu");
     }
     private void OnClickNext() {
-        Debug.Log("Next!");
         UnsetPause();
         next.Raise();
     }
@@ -71,7 +68,7 @@ public class PauseActions : MonoBehaviour
         }
     }
     public void onFinish(){
-            modal.style.display = DisplayStyle.Flex;
-            title.text = "Finish.exe";
+        modal.style.display = DisplayStyle.Flex;
+        title.text = "Finish.exe";
     }
 }

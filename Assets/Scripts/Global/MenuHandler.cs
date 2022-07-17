@@ -9,7 +9,7 @@ public class MenuHandler : MonoBehaviour
     [SerializeField] private AtomBaseVariable<bool> isPauseDisplayed;
     [SerializeField] private AtomEvent<Void> togglePause;
     [SerializeField] private AtomBaseVariable<float> endLevelDelay;
-    [SerializeField] private AtomEvent<Void> finishEvent;
+    [SerializeField] private AtomEvent<Void> openEndMenu;
  
     public void TogglePauseMenu() {
         isPauseDisplayed.Value = !isPauseDisplayed.Value;
@@ -21,12 +21,13 @@ public class MenuHandler : MonoBehaviour
     }
 
     public void OnGoalReached() {
+        Debug.Log("Coroutine start");
         StartCoroutine("IEndLevel");
     }
  
     private IEnumerator IEndLevel() {
         yield return new WaitForSeconds(endLevelDelay.Value);
-        // finishEvent.Raise();
-        Debug.Log("Raised end level event");
+        Debug.Log("End Coroutine");
+        openEndMenu.Raise();
     }
 }

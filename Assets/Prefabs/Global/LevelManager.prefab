@@ -53,7 +53,7 @@ MonoBehaviour:
   isPauseDisplayed: {fileID: 11400000, guid: b6a11a75221ceaed8bd540645fbee7bd, type: 2}
   togglePause: {fileID: 11400000, guid: c70b3ca396ed7ef478d5445b9ce36f53, type: 2}
   endLevelDelay: {fileID: 11400000, guid: b02bf53b9f8b6c1f1866753c86a2469c, type: 2}
-  finishEvent: {fileID: 0}
+  openEndMenu: {fileID: 11400000, guid: 106b05c061d8f9845a1b585e87ed3eec, type: 2}
 --- !u!114 &517877876502455013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,7 +148,12 @@ MonoBehaviour:
   - T_Binocular
   - T_Sprayer
   - T_Coil
-  beachLevels: []
+  beachLevels:
+  - T_level01
+  - T_level02
+  - T_level03
+  - T_level04
+  - T_level05
   mainMenuScene: MovementScene
   allGoalReached: {fileID: 11400000, guid: 4dbe903e9c4e0893295839b2a777e545, type: 2}
   isEndLevelTriggered: {fileID: 11400000, guid: 37b88e4054cf9996face218a2018b581, type: 2}
