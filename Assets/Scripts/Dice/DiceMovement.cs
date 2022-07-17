@@ -40,6 +40,7 @@ public class DiceMovement : MonoBehaviour
     [SerializeField] private AtomBaseVariable<int> rollLeftAllowed;
 
     [SerializeField] private AtomBaseVariable<bool> isPauseDisplayed;
+    [SerializeField] private AtomBaseVariable<bool> isEndLevelTriggered;
     [SerializeField] private AtomBaseVariable<int> dicesMovingCount; 
 
 
@@ -63,7 +64,7 @@ public class DiceMovement : MonoBehaviour
     }
     
     public void OnPlayerMovement() {
-        if (!isMoving.Value && dicesMovingCount.Value == 0 && playerMovement.Value.magnitude > 0 && !isPauseDisplayed.Value) {
+        if (!isMoving.Value && dicesMovingCount.Value == 0 && playerMovement.Value.magnitude > 0 && !isPauseDisplayed.Value && !isEndLevelTriggered.Value) {
             TryMovement();
         }
     }
