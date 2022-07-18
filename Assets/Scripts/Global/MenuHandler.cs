@@ -16,7 +16,7 @@ public class MenuHandler : MonoBehaviour
         // togglePause.Raise();
     }
 
-    private void Destroy() {
+    private void OnDestroy() {
         StopAllCoroutines();
     }
 

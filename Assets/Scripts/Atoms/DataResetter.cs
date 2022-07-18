@@ -12,7 +12,7 @@ public class DataResetter : MonoBehaviour
     {
     }
 
-    void Destroy() {
+    void OnDestroy() {
         foreach(AtomBaseVariable variable in variables) {
             variable.Reset();
         }
