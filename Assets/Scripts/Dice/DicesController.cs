@@ -26,6 +26,7 @@ public class DicesController : MonoBehaviour
     private void OnDestroy() {
         onPlayerMovement.Unregister(this.OnPlayerInput);
         onDiceMoveChange.Unregister(this.OnDiceMoveChange);
+        dicesState.Reset();
     }
 
     private void OnDiceMoveChange(bool isMoving) {
