@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce6f93ad15357461e9ab20df7ec6e6dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goalReachedCount: {fileID: 11400000, guid: 1e480bc21e8d9d86fa13e9983e50d5fd, type: 2}
+  onGoalChanged: {fileID: 11400000, guid: 6d8a7ed1d9d07bd47b2c7f31d1fbfb25, type: 2}
   goalValue: 5
 --- !u!114 &3741633743330177212
 MonoBehaviour:

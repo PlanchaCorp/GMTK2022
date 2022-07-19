@@ -15,4 +15,4 @@ MonoBehaviour:
   _developerDescription: 'This is the MENU event triggered when MENU happens
 
     probably??'
-  _replayBufferSize: 1
+  _replayBufferSize: 0

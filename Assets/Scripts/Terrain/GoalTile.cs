@@ -16,24 +16,22 @@ public class GoalTile : MonoBehaviour
     };
 
     [SerializeField]
-    private AtomBaseVariable<int> goalReachedCount;
+    private AtomEvent<bool> onGoalChanged;
 
     [SerializeField]
     private int goalValue = 0;
 
     private void OnTriggerEnter(Collider collider) {
         int pressedValue = colliderValues.ContainsKey(collider.name) ? colliderValues[collider.name] : 0;
-        if (pressedValue == goalValue && pressedValue > 0) {
-            Debug.Log("Goal entered.");
-            goalReachedCount.Value++;
+        if (pressedValue == goalValue && pressedValue != 0) {
+            onGoalChanged.Raise(true);
         }
     }
 
     private void OnTriggerExit(Collider collider) {
         int pressedValue = colliderValues.ContainsKey(collider.name) ? colliderValues[collider.name] : 0;
-        if (pressedValue == goalValue && pressedValue > 0) {
-            Debug.Log("Goal left.");
-            goalReachedCount.Value--;
+        if (pressedValue == goalValue && pressedValue != 0) {
+            onGoalChanged.Raise(false);
         }
     }
 }

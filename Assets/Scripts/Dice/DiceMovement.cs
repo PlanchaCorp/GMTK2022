@@ -44,24 +44,30 @@ public class DiceMovement : MonoBehaviour
     private float currentMovementProgress = 0;
     private bool isGliding = false;
 
-    private DiceDirections currentMovementDirection;
+    private DiceDirections currentMovementDirection = DiceDirections.NONE;
     private Vector3 initialPosition;
 
+    private void Awake() {
+    }
+
     private void Start() {
-        currentMovementDirection = DiceDirections.NONE;
         initialPosition = transform.position;
         onMoveRequested.Register(this.OnMoveRequested);
     }
 
     private void OnDestroy() {
         onMoveRequested.Unregister(this.OnMoveRequested);
+        // sensorTopReachable.Reset();
+        // sensorRightReachable.Reset();
+        // sensorDownReachable.Reset();
+        // sensorLeftReachable.Reset();
+        // isOnIce.Reset();
     }
 
     private void Update()
     {
-        if (isMoving && Time.timeScale > 0) {
+        if (isMoving && Time.timeScale > 0)
             MoveDice();
-        }
     }
 
     private void OnMoveRequested(int directionRequested) {
@@ -95,7 +101,6 @@ public class DiceMovement : MonoBehaviour
 
         // Stop movement since we reached 1 case
         if (currentMovementProgress >= 1) {
-            // bool wasGliding = isGliding;
             isGliding = false;
             isMoving = false;
             onDiceMoveChange.Raise(false);

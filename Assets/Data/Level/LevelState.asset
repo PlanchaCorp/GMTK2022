@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a56d454e768904df09296076c1aaea26, type: 3}
-  m_Name: DicesState
+  m_Name: LevelState
   m_EditorClassIdentifier: 
   _developerDescription: 
-  _id: DicesState
-  _value: Idle
-  _changed: {fileID: 11400000, guid: 0c261f0ff02d201a78978ceec18d2104, type: 2}
+  _id: 
+  _value: InProgress
+  _changed: {fileID: 11400000, guid: ccaa6f23d1e5af9d797461bc970a8eb0, type: 2}
   _changedWithHistory: {fileID: 0}
   _triggerChangedOnOnEnable: 0
   _triggerChangedWithHistoryOnOnEnable: 0
-  _oldValue: Idle
-  _initialValue: Idle
+  _oldValue: Paused
+  _initialValue: InProgress
   _preChangeTransformers: []
   _transitionStarted: {fileID: 0}
   _completeCurrentTransition: {fileID: 0}
@@ -28,7 +28,7 @@ MonoBehaviour:
     _list:
     - _id:
         _usage: 0
-        _value: Idle
+        _value: InProgress
         _constant: {fileID: 0}
         _variable: {fileID: 0}
         _variableInstancer: {fileID: 0}
@@ -41,7 +41,7 @@ MonoBehaviour:
       _subMachine: {fileID: 0}
     - _id:
         _usage: 0
-        _value: Moving
+        _value: Paused
         _constant: {fileID: 0}
         _variable: {fileID: 0}
         _variableInstancer: {fileID: 0}
@@ -54,7 +54,7 @@ MonoBehaviour:
       _subMachine: {fileID: 0}
     - _id:
         _usage: 0
-        _value: Locked
+        _value: Completed
         _constant: {fileID: 0}
         _variable: {fileID: 0}
         _variableInstancer: {fileID: 0}
@@ -69,19 +69,19 @@ MonoBehaviour:
     _list:
     - _fromState:
         _usage: 0
-        _value: Idle
+        _value: InProgress
         _constant: {fileID: 0}
         _variable: {fileID: 0}
         _variableInstancer: {fileID: 0}
       _toState:
         _usage: 0
-        _value: Moving
+        _value: Paused
         _constant: {fileID: 0}
         _variable: {fileID: 0}
         _variableInstancer: {fileID: 0}
       _command:
         _usage: 0
-        _value: BeginMovement
+        _value: Pause
         _constant: {fileID: 0}
         _variable: {fileID: 0}
         _variableInstancer: {fileID: 0}
@@ -89,19 +89,19 @@ MonoBehaviour:
       _raiseEventToCompleteTransition: 0
     - _fromState:
         _usage: 0
-        _value: Moving
+        _value: Paused
         _constant: {fileID: 0}
         _variable: {fileID: 0}
         _variableInstancer: {fileID: 0}
       _toState:
         _usage: 0
-        _value: Idle
+        _value: InProgress
         _constant: {fileID: 0}
         _variable: {fileID: 0}
         _variableInstancer: {fileID: 0}
       _command:
         _usage: 0
-        _value: EndMovement
+        _value: Unpause
         _constant: {fileID: 0}
         _variable: {fileID: 0}
         _variableInstancer: {fileID: 0}
@@ -109,19 +109,19 @@ MonoBehaviour:
       _raiseEventToCompleteTransition: 0
     - _fromState:
         _usage: 0
-        _value: Moving
+        _value: InProgress
         _constant: {fileID: 0}
         _variable: {fileID: 0}
         _variableInstancer: {fileID: 0}
       _toState:
         _usage: 0
-        _value: Locked
+        _value: Completed
         _constant: {fileID: 0}
         _variable: {fileID: 0}
         _variableInstancer: {fileID: 0}
       _command:
         _usage: 0
-        _value: LockDices
+        _value: Complete
         _constant: {fileID: 0}
         _variable: {fileID: 0}
         _variableInstancer: {fileID: 0}

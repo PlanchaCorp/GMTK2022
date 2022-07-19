@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Restart
   m_EditorClassIdentifier: 
   _developerDescription: Restart level
-  _replayBufferSize: 1
+  _replayBufferSize: 0

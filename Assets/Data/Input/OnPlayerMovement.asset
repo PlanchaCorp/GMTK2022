@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: OnPlayerMovement
   m_EditorClassIdentifier: 
   _developerDescription: 
-  _replayBufferSize: 1
-  _inspectorRaiseValue: {x: 0, y: 0}
+  _replayBufferSize: 0
+  _inspectorRaiseValue: {x: 1, y: 0}

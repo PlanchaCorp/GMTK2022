@@ -5,9 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/Levels/AbstractMeadow/M_Mantis.unity
+    guid: 9039c3c7943c322f1b653ec651420bfe
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 7d0b56c9652a2db4c81f84a06fa4b9a2
@@ -17,9 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/AbstractMeadow/M_Caterpillar.unity
     guid: b100347f1c0bdcb80800affe52d7c8da
-  - enabled: 1
-    path: Assets/Scenes/Levels/AbstractMeadow/M_Mantis.unity
-    guid: 9039c3c7943c322f1b653ec651420bfe
   - enabled: 1
     path: Assets/Scenes/Levels/AbstractMeadow/M_Snail.unity
     guid: 4c729edfa77fb05e8aba891d62b229a5
@@ -32,9 +29,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/AmbiguousTundra/T_Catalyst.unity
     guid: f9eec4ff512a8b5498fdd40480ba146e
-  - enabled: 0
-    path: Assets/Scenes/MovementScene.unity
-    guid: 127ab63fe7dfa585d806ed9e6a746839
   - enabled: 1
     path: Assets/Scenes/Levels/AmbiguousTundra/T_Coil.unity
     guid: 6af00bc36766cc9f8b562bfd52346e94

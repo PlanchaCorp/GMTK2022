@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: OnDicesStateChange
   m_EditorClassIdentifier: 
   _developerDescription: 
-  _replayBufferSize: 1
-  _inspectorRaiseValue: 
+  _replayBufferSize: 0
+  _inspectorRaiseValue: EndMovement
