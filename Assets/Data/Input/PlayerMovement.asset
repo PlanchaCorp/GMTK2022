@@ -17,8 +17,8 @@ MonoBehaviour:
   _value: {x: 0, y: 0}
   _changed: {fileID: 11400000, guid: c5dab98fd87c9bf43b5231c9a9dd05a3, type: 2}
   _changedWithHistory: {fileID: 0}
-  _triggerChangedOnOnEnable: 0
+  _triggerChangedOnOnEnable: 1
   _triggerChangedWithHistoryOnOnEnable: 0
-  _oldValue: {x: 0, y: 0}
+  _oldValue: {x: 1, y: 0}
   _initialValue: {x: 0, y: 0}
   _preChangeTransformers: []
