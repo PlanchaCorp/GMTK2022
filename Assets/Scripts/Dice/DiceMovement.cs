@@ -57,11 +57,6 @@ public class DiceMovement : MonoBehaviour
 
     private void OnDestroy() {
         onMoveRequested.Unregister(this.OnMoveRequested);
-        // sensorTopReachable.Reset();
-        // sensorRightReachable.Reset();
-        // sensorDownReachable.Reset();
-        // sensorLeftReachable.Reset();
-        // isOnIce.Reset();
     }
 
     private void Update()
