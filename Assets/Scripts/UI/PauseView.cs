@@ -3,20 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityAtoms;
+using UniRx;
 
-
-public class PauseActions : MonoBehaviour
+public class PauseView : MonoBehaviour
 {
-    // Start is called before the first frame update
-    [SerializeField]
-    private UIDocument uiDocument;
+    [SerializeField] private UIDocument uiDocument;
 
-    [SerializeField]
-    private AtomEvent<Void> restart;
-    [SerializeField]
-    private AtomEvent<Void> menu;
-    [SerializeField]
-    private AtomEvent<Void> next;
+
+    [SerializeField] private AtomEvent<Void> onRestartRequest;
+    [SerializeField] private AtomEvent<Void> onMainMenuRequest;
+    [SerializeField] private AtomEvent<Void> onNextLevelRequest;
+    [SerializeField] private AtomEvent<string> onLevelStateChanged;
 
     private Button restartButton;    
     private Button menuButton;    
@@ -24,6 +21,21 @@ public class PauseActions : MonoBehaviour
     private Label title;
     private VisualElement modal;
 
+
+    void Awake(){
+        onLevelStateChanged.Observe()
+            .Where(state => state == LevelStates.Paused)
+            .TakeUntilDestroy(this)
+            .Subscribe(_ => OnPause());
+        onLevelStateChanged.Observe()
+            .Where(state => state == LevelStates.InProgress)
+            .TakeUntilDestroy(this)
+            .Subscribe(_ => ClosePause());
+        onLevelStateChanged.Observe()
+            .Where(state => state == LevelStates.Completed)
+            .TakeUntilDestroy(this)
+            .Subscribe(_ => OnFinish());
+    }
     void OnEnable(){
         var root = uiDocument.rootVisualElement;
         modal = root.Q<VisualElement>("Modal");
@@ -43,24 +55,23 @@ public class PauseActions : MonoBehaviour
     }
 
     private void OnClickRestart() {
-        restart.Raise();
+        onRestartRequest.Raise();
     }
     private void OnClickMenu() {
-        Debug.Log("Menu!");
-        menu.Raise();
+        onMainMenuRequest.Raise();
     }
     private void OnClickNext() {
-        next.Raise();
+        onNextLevelRequest.Raise();
     }
 
-    public void OnPause() {
-            modal.style.display = DisplayStyle.Flex;
-            title.text = "Pause.exe";
+    private void OnPause() {
+        modal.style.display = DisplayStyle.Flex;
+        title.text = "Pause.exe";
     }
-    public void ClosePause(){
+    private void ClosePause(){
         modal.style.display = DisplayStyle.None;
     }
-    public void onFinish(){
+    private void OnFinish(){
         modal.style.display = DisplayStyle.Flex;
         title.text = "Finish.exe";
     }

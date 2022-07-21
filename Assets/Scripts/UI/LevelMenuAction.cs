@@ -75,11 +75,11 @@ public class LevelMenuAction : MonoBehaviour
         this.folder = folder;
         title.text = this.folder;
         if(folder == "Meadow"){
-            this.levelToLoad = levelManager.meadowLevels;
+            //this.levelToLoad = levelManager.meadowLevels;
         } else if(folder == "Toundra"){
-            this.levelToLoad = levelManager.tundraLevels;
+           // this.levelToLoad = levelManager.tundraLevels;
         } else {
-            this.levelToLoad = levelManager.beachLevels;
+            // this.levelToLoad = levelManager.beachLevels;
         }
         }  
 }

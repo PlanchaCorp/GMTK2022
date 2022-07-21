@@ -7,30 +7,25 @@ using UnityAtoms.FSM;
 using UnityAtoms.BaseAtoms;
 using UniRx;
 
-public class InGameActions : MonoBehaviour
+public class HeadUpDisplayView : MonoBehaviour
 {
-    [SerializeField]
-    private UIDocument uiDocument;
-    [SerializeField]
-    private IntVariable moveCount;
+    [SerializeField] private UIDocument uiDocument;
+    [SerializeField] private IntVariable moveCount;
 
-    [SerializeField]
-    private AtomEvent<Void> restart;
-    [SerializeField] private FiniteStateMachineReference levelState;
+    [SerializeField] private AtomEvent<Void> onRestartRequest;
+    [SerializeField] private AtomEvent<Void> onPauseRequest;
     
-
     private Button pauseButton;
     private Button restartButton;
     private Label moveCountLabel;
 
     private void Awake(){
         moveCount.ObserveChange()
-        .TakeUntilDestroy(this)
-        .Subscribe(displayMovesCount);
+            .TakeUntilDestroy(this)
+            .Subscribe(displayMovesCount);
     }
     private void OnEnable()
-    {
-        
+    {   
         var root = uiDocument.rootVisualElement;
         pauseButton = root.Q<Button>("Pause");
         restartButton = root.Q<Button>("Restart");
@@ -46,21 +41,15 @@ public class InGameActions : MonoBehaviour
     }
 
     private void OnClickRestart() {
-        restart.Raise();
+        Debug.Log("RESTART");
+        onRestartRequest.Raise();
     }
     private void OnClickPause() {
-       if (levelState.Machine.Value == LevelStates.InProgress){
-            levelState.Machine.Dispatch(LevelTransition.Pause);
-            GetComponent<PauseActions>().OnPause();
-    }
-        else {
-            levelState.Machine.Dispatch(LevelTransition.Unpause);
-            GetComponent<PauseActions>().ClosePause();
-        }
+        onPauseRequest.Raise();
     }
 
     private void displayMovesCount(int count){
-        moveCountLabel.text= count + " Moves";
+        moveCountLabel.text = count + " Moves";
     }
 
 }

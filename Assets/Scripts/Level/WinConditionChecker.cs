@@ -6,7 +6,7 @@ using UnityAtoms.FSM;
 public class WinConditionChecker : MonoBehaviour {
 
     [SerializeField]
-    private SceneDataBase dataBase;
+    private SceneDispatcher dataBase;
     private int numberOfEnd;
     [SerializeField]
     private AtomEvent<bool> goalChangedEvent;
@@ -15,11 +15,10 @@ public class WinConditionChecker : MonoBehaviour {
     private int currentReachedGoalCount=0;
 
     void Awake(){
-        Debug.Log( dataBase.getCurrentLevel());
-        numberOfEnd = dataBase.getCurrentLevel().numberOfEnd;
-        Observable.AsObservable(goalChangedEvent.Observe())
-        .TakeUntilDestroy(this)
-        .Subscribe(OnGoalChanged);
+        numberOfEnd = 1;
+        goalChangedEvent.Observe()
+            .TakeUntilDestroy(this)
+            .Subscribe(OnGoalChanged);
 
     }
     
