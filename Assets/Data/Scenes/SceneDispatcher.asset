@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   worlds:
   - {fileID: 11400000, guid: 5389b7866443253468a132e81a8d2c96, type: 2}
+  - {fileID: 11400000, guid: e0daa20260c4aaa40b747fbf4548196b, type: 2}
+  - {fileID: 11400000, guid: bbee8b6e660470c73b3cee4425989a6b, type: 2}
   menuSceneName: MainMenu

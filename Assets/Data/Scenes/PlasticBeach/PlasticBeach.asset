@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   worldName: Plastic Beach
   levels:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 3c5b445bcfc771fefa1f4347209b642c, type: 2}
+  - {fileID: 11400000, guid: 15133797caac7c249a9e67cfbc2c2d52, type: 2}
+  - {fileID: 11400000, guid: 55bed02d5bd23ae66a678ae76934bfdd, type: 2}
+  - {fileID: 11400000, guid: 394eccd357694833f881b8923d2476a4, type: 2}
+  - {fileID: 11400000, guid: ed1b410158c7bee729e59ddf29341d43, type: 2}
   music: {fileID: 0}
   lightColor: {r: 0, g: 0, b: 0, a: 0}

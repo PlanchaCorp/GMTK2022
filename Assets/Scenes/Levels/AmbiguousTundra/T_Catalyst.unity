@@ -2239,7 +2239,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3020419030217946836, guid: 1dbe3c47d9ef5b87da8b4417b82363b8, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3020419030217946836, guid: 1dbe3c47d9ef5b87da8b4417b82363b8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2342,7 +2342,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8015194684880810204, guid: 1586141fe90fcb145a255613b8ace5f2, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8015194684880810204, guid: 1586141fe90fcb145a255613b8ace5f2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2572,21 +2572,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelManager
       objectReference: {fileID: 0}
-    - target: {fileID: 4970097633104681708, guid: 233951ccf8944364289fe745fb0d8ba5, type: 3}
-      propertyPath: onPauseRequest
-      value: 
-      objectReference: {fileID: 11400000, guid: c70b3ca396ed7ef478d5445b9ce36f53, type: 2}
-    - target: {fileID: 4970097633104681708, guid: 233951ccf8944364289fe745fb0d8ba5, type: 3}
-      propertyPath: onRestartRequest
-      value: 
-      objectReference: {fileID: 11400000, guid: c2a58cc77e849c553bf0e319ea6fdd02, type: 2}
-    - target: {fileID: 4970097633104681708, guid: 233951ccf8944364289fe745fb0d8ba5, type: 3}
-      propertyPath: onMainMenuRequest
-      value: 
-      objectReference: {fileID: 11400000, guid: dfca695a66186584295a0d61c834b83b, type: 2}
-    - target: {fileID: 4970097633104681708, guid: 233951ccf8944364289fe745fb0d8ba5, type: 3}
-      propertyPath: onNextLevelRequest
-      value: 
-      objectReference: {fileID: 11400000, guid: fe1d336f6ec767f41829db597864ee6b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 233951ccf8944364289fe745fb0d8ba5, type: 3}
