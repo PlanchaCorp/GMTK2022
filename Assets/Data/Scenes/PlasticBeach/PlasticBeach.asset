@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce5a91d73d96fc84da60caf9410ec60c, type: 3}
-  m_Name: AbstractMeadow
+  m_Name: PlasticBeach
   m_EditorClassIdentifier: 
-  worldName: Abstract Meadow
+  worldName: Plastic Beach
   levels:
-  - {fileID: 11400000, guid: 67f690b72eb256b9f99e255b60935c00, type: 2}
-  - {fileID: 11400000, guid: 7d26cb47ee71a7e77a6d2f0af3551e99, type: 2}
-  - {fileID: 11400000, guid: 7b5269be67cac494eaf762ae6b21ab2c, type: 2}
-  - {fileID: 11400000, guid: e15211d6e90573842b1da018f79d1f2a, type: 2}
-  - {fileID: 11400000, guid: 522735dcd494a02c8afc6c443a5118b9, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   music: {fileID: 0}
   lightColor: {r: 0, g: 0, b: 0, a: 0}
