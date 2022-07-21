@@ -470,6 +470,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1858830709510366380}
     m_Modifications:
+    - target: {fileID: 2973516785815492600, guid: 0b8c942b95241f32fa8c0dcfd55fd31e, type: 3}
+      propertyPath: beachLevels.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2973516785815492600, guid: 0b8c942b95241f32fa8c0dcfd55fd31e, type: 3}
+      propertyPath: beachLevels.Array.data[0]
+      value: P_level01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2973516785815492600, guid: 0b8c942b95241f32fa8c0dcfd55fd31e, type: 3}
+      propertyPath: beachLevels.Array.data[1]
+      value: P_level02
+      objectReference: {fileID: 0}
+    - target: {fileID: 2973516785815492600, guid: 0b8c942b95241f32fa8c0dcfd55fd31e, type: 3}
+      propertyPath: beachLevels.Array.data[2]
+      value: P_level03
+      objectReference: {fileID: 0}
+    - target: {fileID: 2973516785815492600, guid: 0b8c942b95241f32fa8c0dcfd55fd31e, type: 3}
+      propertyPath: beachLevels.Array.data[3]
+      value: P_level04
+      objectReference: {fileID: 0}
+    - target: {fileID: 2973516785815492600, guid: 0b8c942b95241f32fa8c0dcfd55fd31e, type: 3}
+      propertyPath: beachLevels.Array.data[4]
+      value: P_level01
+      objectReference: {fileID: 0}
     - target: {fileID: 4154902880760604952, guid: 0b8c942b95241f32fa8c0dcfd55fd31e, type: 3}
       propertyPath: m_Name
       value: LevelManager

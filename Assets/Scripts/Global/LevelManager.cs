@@ -30,30 +30,15 @@ public class LevelManager : MonoBehaviour
     }
 
     private string GetNextSceneName() {
-        // int i = 0;
-        // foreach(string meadowLevel in meadowLevels) {
-        //     if (meadowLevel == currentSceneName)
-        //         return i + 1 < meadowLevels.Length ? meadowLevels[i + 1] : mainMenuScene;
-        //     i++;
-        // }
-        // i = 0;
-        // foreach(string tundraLevel in tundraLevels) {
-        //     if (tundraLevel == currentSceneName)
-        //         return i + 1 < tundraLevels.Length ? tundraLevels[i + 1] : mainMenuScene;
-        //     i++;
-        // }
-        // i = 0;
-        // foreach(string beachLevel in beachLevels) {
-        //     if (beachLevel == currentSceneName)
-        //         return i + 1 < beachLevels.Length ? beachLevels[i + 1] : mainMenuScene;
-        //     i++;
-        // }
-        return "MainMenu";
+        return "M_Camel";
     }
 
     public void GoToNextLevel() {
         Debug.Log("Loading " + nextSceneName);
         SceneManager.LoadScene(nextSceneName);
+    }
+        public void GoToMenuLevel() {
+        SceneManager.LoadScene(mainMenuScene);
     }
 
     public void RestartLevel(bool force) {

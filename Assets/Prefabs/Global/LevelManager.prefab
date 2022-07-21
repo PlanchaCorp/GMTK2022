@@ -16,8 +16,7 @@ GameObject:
   - component: {fileID: 5616730599168565072}
   - component: {fileID: 8827111237083290}
   - component: {fileID: 8593793084660725301}
-  - component: {fileID: 4077121211191762200}
-  - component: {fileID: 304196276}
+  - component: {fileID: 6648517523224909749}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -55,7 +54,7 @@ MonoBehaviour:
   isPauseDisplayed: {fileID: 11400000, guid: b6a11a75221ceaed8bd540645fbee7bd, type: 2}
   togglePause: {fileID: 11400000, guid: c70b3ca396ed7ef478d5445b9ce36f53, type: 2}
   endLevelDelay: {fileID: 11400000, guid: b02bf53b9f8b6c1f1866753c86a2469c, type: 2}
-  openEndMenu: {fileID: 11400000, guid: 106b05c061d8f9845a1b585e87ed3eec, type: 2}
+  finishEvent: {fileID: 11400000, guid: 106b05c061d8f9845a1b585e87ed3eec, type: 2}
 --- !u!114 &517877876502455013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,12 +150,12 @@ MonoBehaviour:
   - T_Sprayer
   - T_Coil
   beachLevels:
-  - T_level01
-  - T_level02
-  - T_level03
-  - T_level04
-  - T_level05
-  mainMenuScene: MainMenu
+  - P_level01
+  - P_level02
+  - P_level03
+  - P_level04
+  - P_level05
+  mainMenuScene: MovementScene
   allGoalReached: {fileID: 11400000, guid: 4dbe903e9c4e0893295839b2a777e545, type: 2}
   isEndLevelTriggered: {fileID: 11400000, guid: 37b88e4054cf9996face218a2018b581, type: 2}
   hitCount: {fileID: 11400000, guid: cccb3d7670327134c93225cbc6c0e475, type: 2}
@@ -304,50 +303,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cccb3d7670327134c93225cbc6c0e475, type: 2}
   - {fileID: 11400000, guid: 37b88e4054cf9996face218a2018b581, type: 2}
   - {fileID: 11400000, guid: b6a11a75221ceaed8bd540645fbee7bd, type: 2}
-  events:
-  - {fileID: 11400000, guid: 0c802e9750081fbaab81e04aaf23c8f5, type: 2}
-  - {fileID: 11400000, guid: 8b2f1da74724567c7a9532511881838a, type: 2}
-  - {fileID: 11400000, guid: 4ded91d301a045206bc5cf284d5cb61d, type: 2}
-  - {fileID: 11400000, guid: 41bd0f2b9fe0b5a81ae77bc7805aebe7, type: 2}
-  - {fileID: 11400000, guid: fe34bec180b6b910c98d23a61ca405e7, type: 2}
-  - {fileID: 11400000, guid: 1410c130fa9b41aedb02b53a93acdb44, type: 2}
-  - {fileID: 11400000, guid: bcb8dc8d6ff911216baa48913a8eb1e4, type: 2}
-  - {fileID: 11400000, guid: b5cd50906c363a21f8211691b8e58092, type: 2}
-  - {fileID: 11400000, guid: 7e8f7088d9f101bdba77a3aaf3506ad2, type: 2}
-  - {fileID: 11400000, guid: 317476e92c113182aae3f196debdff0e, type: 2}
-  - {fileID: 11400000, guid: ab7ceacaad961f0cdb009b6d10ac020d, type: 2}
-  - {fileID: 11400000, guid: 7e1d94a8073367bc4b32d3e189990fda, type: 2}
-  - {fileID: 11400000, guid: c334d562745eb1ccd89517fcc2be4a7f, type: 2}
-  - {fileID: 11400000, guid: 47d537b034fe674abacbba7c33390e23, type: 2}
-  - {fileID: 11400000, guid: e1c0158e78fba80a59f9002f0bcb7356, type: 2}
-  - {fileID: 11400000, guid: cb637b768b4c8c4dc98552cba7751385, type: 2}
-  - {fileID: 11400000, guid: adeacf2f76580a8118c7d561d42f0596, type: 2}
-  - {fileID: 11400000, guid: e64e1d0440db50b829c7d081969f53fd, type: 2}
-  - {fileID: 11400000, guid: d1640ce5d85a2622793ece972a03a3ff, type: 2}
-  - {fileID: 11400000, guid: 99eacfab879626d31b9ca76afaad5cf2, type: 2}
-  - {fileID: 11400000, guid: ec3a30f2b6b98e17d95b05f7c9823258, type: 2}
-  - {fileID: 11400000, guid: 07abc5a828f4d3b0a871275cf41f7d02, type: 2}
-  - {fileID: 11400000, guid: 23b1f94b3a21daf52b520dfe0fd78edf, type: 2}
-  - {fileID: 11400000, guid: 89cde36da6a26a2c6b8d1a605b3f21d6, type: 2}
-  - {fileID: 11400000, guid: 037a9a78c9e8746d3ac659ac8c0115d4, type: 2}
-  - {fileID: 11400000, guid: 60c01ffb97627a54bb5423e74913dfa8, type: 2}
-  - {fileID: 11400000, guid: 2a38c0190d8c6358e9e9ef81d37b02c0, type: 2}
-  - {fileID: 11400000, guid: ce89427fb25d85a39ac4285f185b3fd4, type: 2}
-  - {fileID: 11400000, guid: 2e9bdc4287a25bb8299a60405de558b1, type: 2}
-  - {fileID: 11400000, guid: c5dab98fd87c9bf43b5231c9a9dd05a3, type: 2}
-  - {fileID: 11400000, guid: 4dbe903e9c4e0893295839b2a777e545, type: 2}
-  - {fileID: 11400000, guid: b4c4902f09422fe02bdd1e3413b0b436, type: 2}
-  - {fileID: 11400000, guid: 106b05c061d8f9845a1b585e87ed3eec, type: 2}
-  - {fileID: 11400000, guid: 1c324814e98b5a841b1eb0910f595e1f, type: 2}
-  - {fileID: 11400000, guid: dfca695a66186584295a0d61c834b83b, type: 2}
-  - {fileID: 11400000, guid: ab1550d38eb6eef408fe7ea20d512bb4, type: 2}
-  - {fileID: 11400000, guid: fe1d336f6ec767f41829db597864ee6b, type: 2}
-  - {fileID: 11400000, guid: c70b3ca396ed7ef478d5445b9ce36f53, type: 2}
-  - {fileID: 11400000, guid: b7d727531b83d5f4b9771b61c9a45cf4, type: 2}
-  - {fileID: 11400000, guid: c2a58cc77e849c553bf0e319ea6fdd02, type: 2}
-  - {fileID: 11400000, guid: 6c87306a370b1e615bbc4de5da1077cf, type: 2}
-  - {fileID: 11400000, guid: 4004826ab37a5ffbfacd75f91cb05efa, type: 2}
---- !u!114 &4077121211191762200
+--- !u!114 &6648517523224909749
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -363,9 +319,9 @@ MonoBehaviour:
   _unityEventResponse:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7870018716876832901}
-        m_TargetAssemblyTypeName: MenuHandler, Assembly-CSharp
-        m_MethodName: OnGoalReached
+      - m_Target: {fileID: 2973516785815492600}
+        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+        m_MethodName: GoToMenuLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -381,47 +337,9 @@ MonoBehaviour:
   _replayEventBufferOnRegister: 1
   _eventReference:
     _usage: 0
-    _event: {fileID: 11400000, guid: 4dbe903e9c4e0893295839b2a777e545, type: 2}
+    _event: {fileID: 11400000, guid: dfca695a66186584295a0d61c834b83b, type: 2}
     _eventInstancer: {fileID: 0}
     _collection: {fileID: 0}
     _list: {fileID: 0}
     _collectionInstancer: {fileID: 0}
     _listInstancer: {fileID: 0}
---- !u!114 &304196276
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4154902880760604952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 775f7409782fa4b619d9153405dd1c25, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _developerDescription: 
-  _unityEventResponse:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2973516785815492600}
-        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: LoadSceneByName
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _actionResponses: []
-  _conditions: []
-  _operator: 0
-  _replayEventBufferOnRegister: 1
-  _eventReference:
-    _usage: 0
-    _event: {fileID: 11400000, guid: 1c324814e98b5a841b1eb0910f595e1f, type: 2}
-    _eventInstancer: {fileID: 0}
-    _variable: {fileID: 0}
-    _variableInstancer: {fileID: 0}
