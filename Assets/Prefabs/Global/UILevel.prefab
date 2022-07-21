@@ -11,9 +11,7 @@ GameObject:
   - component: {fileID: 3306948846263515037}
   - component: {fileID: 3306948846263515036}
   - component: {fileID: 2051779700}
-  - component: {fileID: 2051779705}
   - component: {fileID: 2051779706}
-  - component: {fileID: 8122884048146474293}
   m_Layer: 5
   m_Name: UILevel
   m_TagString: Untagged
@@ -68,45 +66,6 @@ MonoBehaviour:
   restart: {fileID: 11400000, guid: c2a58cc77e849c553bf0e319ea6fdd02, type: 2}
   menu: {fileID: 11400000, guid: 1c324814e98b5a841b1eb0910f595e1f, type: 2}
   next: {fileID: 11400000, guid: fe1d336f6ec767f41829db597864ee6b, type: 2}
-  isPauseDisplayed: {fileID: 11400000, guid: b6a11a75221ceaed8bd540645fbee7bd, type: 2}
---- !u!114 &2051779705
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3306948846263515011}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 050ff37b5550f4b7e9bdf8b985aff484, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _developerDescription: 
-  _unityEventResponse:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2051779706}
-        m_TargetAssemblyTypeName: InGameMenuActions, Assembly-CSharp
-        m_MethodName: displayMovesCount
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _actionResponses: []
-  _conditions: []
-  _operator: 0
-  _replayEventBufferOnRegister: 1
-  _eventReference:
-    _usage: 0
-    _event: {fileID: 11400000, guid: ab1550d38eb6eef408fe7ea20d512bb4, type: 2}
-    _eventInstancer: {fileID: 0}
-    _variable: {fileID: 0}
-    _variableInstancer: {fileID: 0}
 --- !u!114 &2051779706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,46 +79,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiDocument: {fileID: 3306948846263515036}
+  moveCount: {fileID: 11400000, guid: cccb3d7670327134c93225cbc6c0e475, type: 2}
   restart: {fileID: 11400000, guid: c2a58cc77e849c553bf0e319ea6fdd02, type: 2}
-  isPausedDisplayed: {fileID: 11400000, guid: b6a11a75221ceaed8bd540645fbee7bd, type: 2}
-  togglePause: {fileID: 11400000, guid: c70b3ca396ed7ef478d5445b9ce36f53, type: 2}
---- !u!114 &8122884048146474293
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3306948846263515011}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2458933140c54c9db0aec7a69c1b617, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _developerDescription: 
-  _unityEventResponse:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2051779700}
-        m_TargetAssemblyTypeName: PauseActions, Assembly-CSharp
-        m_MethodName: OnPause
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-  _actionResponses: []
-  _conditions: []
-  _operator: 0
-  _replayEventBufferOnRegister: 1
-  _eventReference:
+  levelState:
     _usage: 0
-    _event: {fileID: 11400000, guid: c70b3ca396ed7ef478d5445b9ce36f53, type: 2}
-    _eventInstancer: {fileID: 0}
-    _collection: {fileID: 0}
-    _list: {fileID: 0}
-    _collectionInstancer: {fileID: 0}
-    _listInstancer: {fileID: 0}
+    _fsm: {fileID: 11400000, guid: 1a5b2f3ad966185d6a8180bfe3106e3c, type: 2}
+    _fsmInstancer: {fileID: 0}

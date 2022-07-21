@@ -2913,19 +2913,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c051aef5886905f7db21c6f9f97c86e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rollCapabilities:
-  - rollTopAllowed: {fileID: 11400000, guid: dc080bc316decfa1fa304420412826da, type: 2}
-    rollRightAllowed: {fileID: 11400000, guid: 37ef6e80be520e47e907735afceb4c72, type: 2}
-    rollDownAllowed: {fileID: 11400000, guid: 68aea3311fa98f76ea1f20766b0ffea7, type: 2}
-    rollLeftAllowed: {fileID: 11400000, guid: 0112644c76b11528a936f5c25e185542, type: 2}
-    onTopAvailableEvent: {fileID: 11400000, guid: 47d537b034fe674abacbba7c33390e23, type: 2}
-    onTopBlockedEvent: {fileID: 11400000, guid: e1c0158e78fba80a59f9002f0bcb7356, type: 2}
-    onRightAvailableEvent: {fileID: 11400000, guid: 7e1d94a8073367bc4b32d3e189990fda, type: 2}
-    onRightBlockedEvent: {fileID: 11400000, guid: c334d562745eb1ccd89517fcc2be4a7f, type: 2}
-    onDownAvailableEvent: {fileID: 11400000, guid: b5cd50906c363a21f8211691b8e58092, type: 2}
-    onDownBlockedEvent: {fileID: 11400000, guid: 7e8f7088d9f101bdba77a3aaf3506ad2, type: 2}
-    onLeftAvailableEvent: {fileID: 11400000, guid: 317476e92c113182aae3f196debdff0e, type: 2}
-    onLeftBlockedEvent: {fileID: 11400000, guid: ab7ceacaad961f0cdb009b6d10ac020d, type: 2}
 --- !u!1 &5249898730814605829
 GameObject:
   m_ObjectHideFlags: 0

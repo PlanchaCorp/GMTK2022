@@ -17,7 +17,6 @@ public class PauseActions : MonoBehaviour
     private AtomEvent<string> menu;
     [SerializeField]
     private AtomEvent<Void> next;
-    [SerializeField] private AtomBaseVariable<bool> isPauseDisplayed;
 
     private Button restartButton;    
     private Button menuButton;    
@@ -44,28 +43,21 @@ public class PauseActions : MonoBehaviour
     }
 
     private void OnClickRestart() {
-        UnsetPause();
         restart.Raise();
     }
     private void OnClickMenu() {
         menu.Raise("MainMenu");
     }
     private void OnClickNext() {
-        UnsetPause();
         next.Raise();
-    }
-    private void UnsetPause() {
-        isPauseDisplayed.Value = false;
-        OnPause();
     }
 
     public void OnPause() {
-        if (isPauseDisplayed.Value) {
             modal.style.display = DisplayStyle.Flex;
             title.text = "Pause.exe";
-        } else if (modal != null && modal.style != null) {
-            modal.style.display = DisplayStyle.None;
-        }
+    }
+    public void ClosePause(){
+        modal.style.display = DisplayStyle.None;
     }
     public void onFinish(){
         modal.style.display = DisplayStyle.Flex;

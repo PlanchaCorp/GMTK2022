@@ -3,25 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityAtoms;
+using UnityAtoms.FSM;
+using UnityAtoms.BaseAtoms;
+using UniRx;
 
 public class InGameActions : MonoBehaviour
 {
     [SerializeField]
     private UIDocument uiDocument;
+    [SerializeField]
+    private IntVariable moveCount;
 
     [SerializeField]
     private AtomEvent<Void> restart;
-    [SerializeField]
-    private AtomBaseVariable<bool> isPausedDisplayed;
-    [SerializeField] private AtomEvent<Void> togglePause;
+    [SerializeField] private FiniteStateMachineReference levelState;
     
 
     private Button pauseButton;
     private Button restartButton;
     private Label moveCountLabel;
 
+    private void Awake(){
+        moveCount.ObserveChange()
+        .TakeUntilDestroy(this)
+        .Subscribe(displayMovesCount);
+    }
     private void OnEnable()
     {
+        
         var root = uiDocument.rootVisualElement;
         pauseButton = root.Q<Button>("Pause");
         restartButton = root.Q<Button>("Restart");
@@ -40,11 +49,17 @@ public class InGameActions : MonoBehaviour
         restart.Raise();
     }
     private void OnClickPause() {
-        isPausedDisplayed.Value = !isPausedDisplayed.Value;
-        togglePause.Raise();
+       if (levelState.Machine.Value == LevelStates.InProgress){
+            levelState.Machine.Dispatch(LevelTransition.Pause);
+            GetComponent<PauseActions>().OnPause();
+    }
+        else {
+            levelState.Machine.Dispatch(LevelTransition.Unpause);
+            GetComponent<PauseActions>().ClosePause();
+        }
     }
 
-    public void displayMovesCount(int count){
+    private void displayMovesCount(int count){
         moveCountLabel.text= count + " Moves";
     }
 

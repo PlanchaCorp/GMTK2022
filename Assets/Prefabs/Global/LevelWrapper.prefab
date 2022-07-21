@@ -86,6 +86,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1858830709950234142}
+  - component: {fileID: 1457176447}
   m_Layer: 0
   m_Name: LevelWrapper
   m_TagString: Untagged
@@ -110,6 +111,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1457176447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496758752187569795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5da43c5348c1b21de9ae6fd0aa6d1159, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneDB: {fileID: 0}
+  levelState:
+    _usage: 0
+    _fsm: {fileID: 11400000, guid: 1a5b2f3ad966185d6a8180bfe3106e3c, type: 2}
+    _fsmInstancer: {fileID: 0}
+  onLevelStateChange: {fileID: 11400000, guid: ccaa6f23d1e5af9d797461bc970a8eb0, type: 2}
 --- !u!1001 &7325050340732569108
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -117,6 +136,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1858830709950234142}
     m_Modifications:
+    - target: {fileID: 2051779706, guid: b3f7c64d0957abf36942a51f7585903f, type: 3}
+      propertyPath: levelState._fsm
+      value: 
+      objectReference: {fileID: 11400000, guid: 1a5b2f3ad966185d6a8180bfe3106e3c, type: 2}
     - target: {fileID: 3306948846263515011, guid: b3f7c64d0957abf36942a51f7585903f, type: 3}
       propertyPath: m_Name
       value: UILevel
@@ -165,7 +188,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8122884048146474293, guid: b3f7c64d0957abf36942a51f7585903f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b3f7c64d0957abf36942a51f7585903f, type: 3}
 --- !u!4 &5207122201573372297 stripped
 Transform:
