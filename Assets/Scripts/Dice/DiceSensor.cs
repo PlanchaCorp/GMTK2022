@@ -10,6 +10,9 @@ public class DiceSensor : MonoBehaviour
     private int groundContactCount = 0;
     private int diceContactCount = 0;
 
+    private void OnDestroy() {
+        sensorReachable.Value = false;
+    }
 
     private void OnTriggerEnter(Collider collider) {
         if (collider.tag == "Ground" || collider.tag == "Ice")

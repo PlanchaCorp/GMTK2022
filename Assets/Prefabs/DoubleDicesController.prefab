@@ -47,11 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef92da7ad38b6fe54965bcb020afb7be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dicesState:
-    _usage: 0
-    _fsm: {fileID: 11400000, guid: 3525aa4053145b08bb4ca960f1d3e69e, type: 2}
-    _fsmInstancer: {fileID: 0}
-  onDiceStateChange: {fileID: 11400000, guid: 0c261f0ff02d201a78978ceec18d2104, type: 2}
+  dicesState: {fileID: 11400000, guid: 3525aa4053145b08bb4ca960f1d3e69e, type: 2}
   onDiceMoveChange: {fileID: 11400000, guid: 966bd7692769c116891b6f77466c1233, type: 2}
   onMoveRequested: {fileID: 11400000, guid: a5db49c4eb553af66a48694f8042faad, type: 2}
   onPlayerMovement: {fileID: 11400000, guid: c5dab98fd87c9bf43b5231c9a9dd05a3, type: 2}
