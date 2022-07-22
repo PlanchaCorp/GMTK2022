@@ -52,11 +52,11 @@ public class DiceMovement : MonoBehaviour
 
     private void Start() {
         initialPosition = transform.position;
-        onMoveRequested.Register(this.OnMoveRequested);
+        onMoveRequested.Register(direction => this.OnMoveRequested(direction));
     }
 
     private void OnDestroy() {
-        onMoveRequested.Unregister(this.OnMoveRequested);
+        onMoveRequested.Unregister(direction => this.OnMoveRequested(direction));
     }
 
     private void Update()
@@ -65,21 +65,25 @@ public class DiceMovement : MonoBehaviour
             MoveDice();
     }
 
-    private void OnMoveRequested(int directionRequested) {
+    private bool OnMoveRequested(int directionRequested, bool acceptMovingDice = false) {
         DiceDirections direction = (DiceDirections)directionRequested;
         if (
-            isMoving ||
+            (isMoving && !acceptMovingDice) ||
             (direction == DiceDirections.TOP && !sensorTopReachable.Value) ||
             (direction == DiceDirections.RIGHT && !sensorRightReachable.Value) ||
             (direction == DiceDirections.DOWN && !sensorDownReachable.Value) ||
             (direction == DiceDirections.LEFT && !sensorLeftReachable.Value)
         )
-            return;
+            return false;
         
         currentMovementDirection = direction;
-        isMoving = true;
         currentMovementProgress = 0;
-        onDiceMoveChange.Raise(true);
+
+        if (!isMoving)
+            onDiceMoveChange.Raise(true);
+        isMoving = true;
+
+        return true;
     }
 
     private void MoveDice() {
@@ -96,13 +100,19 @@ public class DiceMovement : MonoBehaviour
 
         // Stop movement since we reached 1 case
         if (currentMovementProgress >= 1) {
-            isGliding = false;
-            isMoving = false;
-            onDiceMoveChange.Raise(false);
+            bool keepMoving = false;
+
             // Keep gliding if on ice
             if (isOnIce.Value) {
-                isGliding = true;
-                OnMoveRequested((int)currentMovementDirection);
+                keepMoving = OnMoveRequested((int)currentMovementDirection, true);
+                if (keepMoving)
+                    isGliding = true;
+            }
+
+            if (!keepMoving) {
+                isMoving = false;
+                isGliding = false;
+                onDiceMoveChange.Raise(false);
             }
         }
     }
