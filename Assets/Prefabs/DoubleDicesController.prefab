@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 882994127614077942}
   - component: {fileID: 882994127614077943}
   - component: {fileID: 882994127614077941}
+  - component: {fileID: 6832966941696104484}
   m_Layer: 0
   m_Name: DoubleDicesController
   m_TagString: Untagged
@@ -111,6 +112,24 @@ MonoBehaviour:
   m_DefaultActionMap: PlayerMap
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &6832966941696104484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882994127614077832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27debc271c277c6498186ba6fddc4feb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  diceCount: 2
+  goalChangedEvent: {fileID: 11400000, guid: 6d8a7ed1d9d07bd47b2c7f31d1fbfb25, type: 2}
+  levelState:
+    _usage: 0
+    _fsm: {fileID: 11400000, guid: 1a5b2f3ad966185d6a8180bfe3106e3c, type: 2}
+    _fsmInstancer: {fileID: 0}
 --- !u!1001 &882994127913234238
 PrefabInstance:
   m_ObjectHideFlags: 0

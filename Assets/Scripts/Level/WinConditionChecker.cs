@@ -6,8 +6,8 @@ using UnityAtoms.FSM;
 public class WinConditionChecker : MonoBehaviour {
 
     [SerializeField]
-    private SceneDispatcher dataBase;
-    private int numberOfEnd;
+    private int diceCount;
+    private int goalCount;
     [SerializeField]
     private AtomEvent<bool> goalChangedEvent;
     [SerializeField] 
@@ -15,7 +15,6 @@ public class WinConditionChecker : MonoBehaviour {
     private int currentReachedGoalCount=0;
 
     void Awake(){
-        numberOfEnd = 1;
         goalChangedEvent.Observe()
             .TakeUntilDestroy(this)
             .Subscribe(OnGoalChanged);
@@ -24,7 +23,7 @@ public class WinConditionChecker : MonoBehaviour {
     
     private void OnGoalChanged(bool isCorrectlyPressed) {
         currentReachedGoalCount += isCorrectlyPressed ? 1 : -1;
-        if (currentReachedGoalCount == numberOfEnd)
+        if (currentReachedGoalCount == goalCount)
             levelState.Machine.Dispatch(LevelTransition.Complete);
     }
 
