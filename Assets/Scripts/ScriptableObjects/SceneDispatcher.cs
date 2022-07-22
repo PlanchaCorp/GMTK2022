@@ -17,6 +17,7 @@ public class SceneDispatcher : ScriptableObject
         {
             currentLevelIndex = levelIndex;
             currentWorldIndex = worldIndex;
+            Debug.Log("Loading level ["+worldIndex + "-" + levelIndex + "]");
             SceneManager.LoadScene(worlds[currentWorldIndex].levels[currentLevelIndex].sceneName);
         }
         else {

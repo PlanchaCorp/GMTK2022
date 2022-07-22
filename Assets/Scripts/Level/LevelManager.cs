@@ -14,10 +14,6 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private AtomEvent<Void> onNextLevelRequest;
     [SerializeField] private AtomEvent<Void> onMainMenuRequest;
     [SerializeField] private AtomEvent<Void> onPauseRequest;
-    
-
-    private int levelGoalTotalCount;
-    private int currentReachedGoalCount = 0;
 
     private void Awake() {
         Time.timeScale = 1;
