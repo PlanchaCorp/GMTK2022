@@ -4,17 +4,16 @@ using UniRx;
 using UnityAtoms.FSM;
 
 public class WinConditionChecker : MonoBehaviour {
-
-    [SerializeField]
-    private int diceCount;
-    private int goalCount;
     [SerializeField]
     private AtomEvent<bool> goalChangedEvent;
     [SerializeField] 
     private FiniteStateMachineReference levelState;
-    private int currentReachedGoalCount=0;
+
+    private int currentReachedGoalCount = 0;
+    private int diceCount;
 
     void Awake(){
+        diceCount = GameObject.FindGameObjectsWithTag("Dice").Length;
         goalChangedEvent.Observe()
             .TakeUntilDestroy(this)
             .Subscribe(OnGoalChanged);
@@ -23,7 +22,7 @@ public class WinConditionChecker : MonoBehaviour {
     
     private void OnGoalChanged(bool isCorrectlyPressed) {
         currentReachedGoalCount += isCorrectlyPressed ? 1 : -1;
-        if (currentReachedGoalCount == goalCount)
+        if (currentReachedGoalCount == diceCount)
             levelState.Machine.Dispatch(LevelTransition.Complete);
     }
 

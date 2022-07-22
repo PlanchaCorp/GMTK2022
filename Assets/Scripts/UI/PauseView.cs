@@ -9,10 +9,10 @@ public class PauseView : MonoBehaviour
 {
     [SerializeField] private UIDocument uiDocument;
 
-
     [SerializeField] private AtomEvent<Void> onRestartRequest;
     [SerializeField] private AtomEvent<Void> onMainMenuRequest;
     [SerializeField] private AtomEvent<Void> onNextLevelRequest;
+
     [SerializeField] private AtomEvent<string> onLevelStateChanged;
 
     private Button restartButton;    
@@ -71,7 +71,7 @@ public class PauseView : MonoBehaviour
     private void ClosePause(){
         modal.style.display = DisplayStyle.None;
     }
-    private void OnFinish(){
+    private void OnFinish() {
         modal.style.display = DisplayStyle.Flex;
         title.text = "Finish.exe";
     }
