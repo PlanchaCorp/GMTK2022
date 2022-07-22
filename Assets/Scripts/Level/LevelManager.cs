@@ -17,6 +17,7 @@ public class LevelManager : MonoBehaviour
 
     private void Awake() {
         Time.timeScale = 1;
+        sceneDispatcher.VerifyScene();
         onLevelStateChange.Observe()
             .TakeUntilDestroy(this)
             .Subscribe(OnLevelStateChange);

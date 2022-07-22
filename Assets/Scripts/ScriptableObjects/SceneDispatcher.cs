@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
@@ -40,5 +41,26 @@ public class SceneDispatcher : ScriptableObject
     public void LoadMainMenu()
     {
         SceneManager.LoadScene(menuSceneName);
+    }
+
+    public void VerifyScene() {
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        if (worlds[currentWorldIndex].levels[currentLevelIndex].sceneName != currentSceneName) {
+            int worldId = 0;
+            int levelId = 0;
+            foreach (World world in worlds) {
+                foreach (Level level in world.levels) {
+                    if (level.sceneName == currentSceneName) {
+                        currentWorldIndex = worldId;
+                        currentLevelIndex = levelId;
+                        Debug.Log("Fixing current level id to [" + worldId + "-" + levelId + "]");
+                        return;
+                    }
+                    levelId++;
+                }
+                levelId = 0;
+                worldId++;
+            }
+        }
     }
 }
