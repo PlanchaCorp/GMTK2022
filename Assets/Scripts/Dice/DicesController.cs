@@ -32,6 +32,7 @@ public class DicesController : MonoBehaviour
 
     private void OnDestroy() {
         dicesState.Reset();
+        diceMovesCount.Value = 0;
     }
 
     private void OnDiceMoveChange(bool isMoving) {
