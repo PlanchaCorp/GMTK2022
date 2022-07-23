@@ -3,83 +3,60 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityAtoms;
+using UniRx;
+using UnityAtoms.BaseAtoms;
+using UnityEngine.InputSystem.Controls;
 
 public class LevelMenuAction : MonoBehaviour
 {
     [SerializeField]
     private UIDocument uiDocument;
-
     [SerializeField]
-    private AtomEvent<string> loadLevel;
+    private AtomEvent<string> openFolder;
+    [SerializeField]
+    private SceneDispatcher sceneDispatcher;
 
     private string folder;
 
     private VisualElement levelSelectionWindow;
     private Label title;
-    private Button button1;
-    private Button button2;
-    private Button button3;
-    private Button button4;
-    private Button button5;
     private Button closeButton;
-    private LevelManager levelManager;
-    private string[] levelToLoad;
+    private int worldIndex;
     
 
+    private void Awake(){
+        openFolder.Observe().
+        TakeUntilDestroy(this)
+        .Subscribe(s => OpenWindow(s));
+    }
     void OnEnable() {
-        levelManager = GameObject.Find("LevelManager").GetComponent<LevelManager>();
-
         var root = uiDocument.rootVisualElement;
         levelSelectionWindow =  root.Q<VisualElement>("LevelSelect");
         title =  root.Q<Label>("Title");
-        button1 = root.Q<Button>("Button1");
-        button2 = root.Q<Button>("Button2");
-        button3 = root.Q<Button>("Button3");
-        button4 = root.Q<Button>("Button4");
-        button5 = root.Q<Button>("Button5");
         closeButton = root.Q<Button>("WindowsButton");
-
-        button1.clickable.clicked += onClickButton1;
-        button2.clickable.clicked += onClickButton2;
-        button3.clickable.clicked += onClickButton3;
-        button4.clickable.clicked += onClickButton4;
-        button5.clickable.clicked += onClickButton5;
+        levelSelectionWindow.Query<Button>(className: "levelFile").ForEach((button) => {
+            button.RegisterCallback<ClickEvent>((evt) => onClickButton(button.viewDataKey));
+        });
         closeButton.clickable.clicked += onCloseClick;
     }
 
-    private void onClickButton1(){
-        loadLevel.Raise(levelToLoad[0]);
-    }
-        private void onClickButton2(){
-        loadLevel.Raise(levelToLoad[1]);
+    private void onClickButton(string levelIndex){
+        sceneDispatcher.LoadLevelWithIndex(worldIndex,int.Parse(levelIndex));
     }
 
-    private void onClickButton3(){
-        loadLevel.Raise(levelToLoad[2]);
-    }
-
-    private void onClickButton4(){
-        loadLevel.Raise(levelToLoad[3]);
-    }
-
-    private void onClickButton5(){
-        loadLevel.Raise(levelToLoad[4]);
-    }
-
-
-    public void onCloseClick(){
+    private void onCloseClick(){
         levelSelectionWindow.style.display = DisplayStyle.None;
     }
-    public void OpenWindow(string folder){
+    private void OpenWindow(string folder){
         levelSelectionWindow.style.display = DisplayStyle.Flex;
         this.folder = folder;
         title.text = this.folder;
         if(folder == "Meadow"){
-            this.levelToLoad = levelManager.meadowLevels;
+            worldIndex = 0;
         } else if(folder == "Toundra"){
-            this.levelToLoad = levelManager.tundraLevels;
+            worldIndex = 1;
         } else {
-            this.levelToLoad = levelManager.beachLevels;
+            worldIndex = 2;
         }
-        }  
+    }
 }

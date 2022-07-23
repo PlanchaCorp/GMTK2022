@@ -46,7 +46,6 @@ GameObject:
   - component: {fileID: 4673454588649812453}
   - component: {fileID: 1946286366732151255}
   - component: {fileID: 5443848535443158554}
-  - component: {fileID: 8335346522928705711}
   m_Layer: 0
   m_Name: default
   m_TagString: Ground
@@ -144,7 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce6f93ad15357461e9ab20df7ec6e6dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goalReachedCount: {fileID: 11400000, guid: 1e480bc21e8d9d86fa13e9983e50d5fd, type: 2}
+  onGoalChanged: {fileID: 11400000, guid: 6d8a7ed1d9d07bd47b2c7f31d1fbfb25, type: 2}
   goalValue: 4
 --- !u!114 &5443848535443158554
 MonoBehaviour:
@@ -158,45 +157,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c172f6fd8eaf8a0d69c65762e283bb68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onLevelStateChange: {fileID: 11400000, guid: ccaa6f23d1e5af9d797461bc970a8eb0, type: 2}
   loweringAmount: {fileID: 11400000, guid: d07883e973ed585d889cc0b96a033130, type: 2}
   loweringSpeed: {fileID: 11400000, guid: beb8ed0c60cf514cf9a0cfbf54c4d179, type: 2}
---- !u!114 &8335346522928705711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9171969136680291446}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2458933140c54c9db0aec7a69c1b617, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _developerDescription: 
-  _unityEventResponse:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5443848535443158554}
-        m_TargetAssemblyTypeName: OnGoalLowerer, Assembly-CSharp
-        m_MethodName: StartLowering
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _actionResponses: []
-  _conditions: []
-  _operator: 0
-  _replayEventBufferOnRegister: 1
-  _eventReference:
-    _usage: 0
-    _event: {fileID: 11400000, guid: 4dbe903e9c4e0893295839b2a777e545, type: 2}
-    _eventInstancer: {fileID: 0}
-    _collection: {fileID: 0}
-    _list: {fileID: 0}
-    _collectionInstancer: {fileID: 0}
-    _listInstancer: {fileID: 0}

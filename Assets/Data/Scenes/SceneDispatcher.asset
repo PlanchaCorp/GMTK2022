@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1f10782734c1ad46b210e19974e8497, type: 3}
+  m_Name: SceneDispatcher
+  m_EditorClassIdentifier: 
+  worlds:
+  - {fileID: 11400000, guid: 5389b7866443253468a132e81a8d2c96, type: 2}
+  - {fileID: 11400000, guid: e0daa20260c4aaa40b747fbf4548196b, type: 2}
+  - {fileID: 11400000, guid: bbee8b6e660470c73b3cee4425989a6b, type: 2}
+  menuSceneName: MainMenu

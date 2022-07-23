@@ -2,23 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityAtoms;
+using UnityAtoms.BaseAtoms;
 
 public class DiceSide : MonoBehaviour
 {
-    [SerializeField]
-    private AtomBaseVariable<int> diceBottomValue;
-    [SerializeField]
-    private AtomBaseVariable<int> diceTopValue;
-    [SerializeField]
-    private AtomBaseVariable<bool> isOnIce;
+    [SerializeField] private int diceSideValue;
 
-    [SerializeField]
-    private int diceSideValue;
+    [SerializeField] private BoolReference isOnIce;
+    [SerializeField] private AtomEvent<int> onSidePressed;
 
     private void OnTriggerEnter(Collider collider) {
-        diceBottomValue.Value = diceSideValue;
-        diceTopValue.Value = 7 - diceSideValue;
-
-        isOnIce.Value = collider.tag == "Ice";
+        if (collider.tag == "Ground" || collider.tag == "Ice") {
+            isOnIce.Value = collider.tag == "Ice";
+            onSidePressed.Raise(diceSideValue);
+        }
     }
 }

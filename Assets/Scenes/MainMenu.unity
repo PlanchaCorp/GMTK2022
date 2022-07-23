@@ -123,65 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!4 &206827793 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6495333036802002599, guid: 0b8c942b95241f32fa8c0dcfd55fd31e, type: 3}
-  m_PrefabInstance: {fileID: 4466916277458448373}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &304196269 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4154902880760604952, guid: 0b8c942b95241f32fa8c0dcfd55fd31e, type: 3}
-  m_PrefabInstance: {fileID: 4466916277458448373}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &304196273 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2973516785815492600, guid: 0b8c942b95241f32fa8c0dcfd55fd31e, type: 3}
-  m_PrefabInstance: {fileID: 4466916277458448373}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 304196269}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bfaebe3ebc1186e9ac24bff37ff4de5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &304196276
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 304196269}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 775f7409782fa4b619d9153405dd1c25, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _developerDescription: 
-  _unityEventResponse:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 304196273}
-        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: LoadSceneByName
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _actionResponses: []
-  _conditions: []
-  _operator: 0
-  _replayEventBufferOnRegister: 1
-  _eventReference:
-    _usage: 0
-    _event: {fileID: 11400000, guid: 1c324814e98b5a841b1eb0910f595e1f, type: 2}
-    _eventInstancer: {fileID: 0}
-    _variable: {fileID: 0}
-    _variableInstancer: {fileID: 0}
 --- !u!1 &1009897313
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,7 +154,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1858830709510366380}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1009897318
 MonoBehaviour:
@@ -341,7 +282,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &496758752921029681
 GameObject:
@@ -355,7 +296,6 @@ GameObject:
   - component: {fileID: 1858830709510366381}
   - component: {fileID: 1858830709510366382}
   - component: {fileID: 1858830709510366384}
-  - component: {fileID: 1858830709510366383}
   m_Layer: 0
   m_Name: MainMenuWrapper
   m_TagString: Untagged
@@ -375,10 +315,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 206827793}
   - {fileID: 1009897316}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1858830709510366381
 MonoBehaviour:
@@ -409,46 +348,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiDocument: {fileID: 1858830709510366381}
-  loadLevel: {fileID: 11400000, guid: 1c324814e98b5a841b1eb0910f595e1f, type: 2}
   openFolder: {fileID: 11400000, guid: b7d727531b83d5f4b9771b61c9a45cf4, type: 2}
---- !u!114 &1858830709510366383
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 496758752921029681}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 775f7409782fa4b619d9153405dd1c25, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _developerDescription: 
-  _unityEventResponse:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1858830709510366384}
-        m_TargetAssemblyTypeName: LevelMenuAction, Assembly-CSharp
-        m_MethodName: OpenWindow
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _actionResponses: []
-  _conditions: []
-  _operator: 0
-  _replayEventBufferOnRegister: 1
-  _eventReference:
-    _usage: 0
-    _event: {fileID: 11400000, guid: b7d727531b83d5f4b9771b61c9a45cf4, type: 2}
-    _eventInstancer: {fileID: 0}
-    _variable: {fileID: 0}
-    _variableInstancer: {fileID: 0}
+  sceneDispatcher: {fileID: 11400000, guid: 3ebbba1e7d06c764c872837cf75a2e81, type: 2}
 --- !u!114 &1858830709510366384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -462,61 +363,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiDocument: {fileID: 1858830709510366381}
-  loadLevel: {fileID: 11400000, guid: 1c324814e98b5a841b1eb0910f595e1f, type: 2}
---- !u!1001 &4466916277458448373
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1858830709510366380}
-    m_Modifications:
-    - target: {fileID: 4154902880760604952, guid: 0b8c942b95241f32fa8c0dcfd55fd31e, type: 3}
-      propertyPath: m_Name
-      value: LevelManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 6495333036802002599, guid: 0b8c942b95241f32fa8c0dcfd55fd31e, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6495333036802002599, guid: 0b8c942b95241f32fa8c0dcfd55fd31e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6495333036802002599, guid: 0b8c942b95241f32fa8c0dcfd55fd31e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6495333036802002599, guid: 0b8c942b95241f32fa8c0dcfd55fd31e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6495333036802002599, guid: 0b8c942b95241f32fa8c0dcfd55fd31e, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6495333036802002599, guid: 0b8c942b95241f32fa8c0dcfd55fd31e, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6495333036802002599, guid: 0b8c942b95241f32fa8c0dcfd55fd31e, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6495333036802002599, guid: 0b8c942b95241f32fa8c0dcfd55fd31e, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6495333036802002599, guid: 0b8c942b95241f32fa8c0dcfd55fd31e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6495333036802002599, guid: 0b8c942b95241f32fa8c0dcfd55fd31e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6495333036802002599, guid: 0b8c942b95241f32fa8c0dcfd55fd31e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 0b8c942b95241f32fa8c0dcfd55fd31e, type: 3}
+  openFolder: {fileID: 11400000, guid: b7d727531b83d5f4b9771b61c9a45cf4, type: 2}
+  sceneDispatcher: {fileID: 11400000, guid: 3ebbba1e7d06c764c872837cf75a2e81, type: 2}

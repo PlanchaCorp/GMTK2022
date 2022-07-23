@@ -9,11 +9,10 @@ public class MainMenuActions : MonoBehaviour
 {
     [SerializeField]
     private UIDocument uiDocument;
-
-    [SerializeField]
-    private AtomEvent<string> loadLevel;
     [SerializeField]
     private AtomEvent<string> openFolder;
+    [SerializeField]
+    private SceneDispatcher sceneDispatcher;
 
     private Button beginButton;    
     private Button openMeadowButton;
@@ -46,19 +45,15 @@ public class MainMenuActions : MonoBehaviour
     }
 
     private void OnClickBegin() {
-        Debug.Log("Begin!");
-        loadLevel.Raise("M_Camel");
+        sceneDispatcher.LoadLevelWithIndex(0,0);
     }
     private void OnClickMeadowSelect() {
-        Debug.Log("Select Folder!");
         openFolder.Raise("Meadow");
     }
     private void OnClickToundraSelect() {
-        Debug.Log("Select Toundra!");
         openFolder.Raise("Toundra");
     }
     private void OnClickBeachSelect() {
-        Debug.Log("Select Beach!");
         openFolder.Raise("Beach");
     }
 
