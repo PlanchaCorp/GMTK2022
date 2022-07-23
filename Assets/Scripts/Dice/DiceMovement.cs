@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityAtoms;
+using UniRx;
 
 
 public class DiceMovement : MonoBehaviour
@@ -52,11 +53,9 @@ public class DiceMovement : MonoBehaviour
 
     private void Start() {
         initialPosition = transform.position;
-        onMoveRequested.Register(direction => this.OnMoveRequested(direction));
-    }
-
-    private void OnDestroy() {
-        onMoveRequested.Unregister(direction => this.OnMoveRequested(direction));
+        onMoveRequested.Observe()
+            .TakeUntilDestroy(this)
+            .Subscribe(direction => this.OnMoveRequested(direction));
     }
 
     private void Update()
