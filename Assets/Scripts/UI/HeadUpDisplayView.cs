@@ -40,11 +40,10 @@ public class HeadUpDisplayView : MonoBehaviour
         restartButton.clickable.clicked -= OnClickRestart;
     }
 
-    private void OnClickRestart() {
-        Debug.Log("RESTART");
+    public  void OnClickRestart() {
         onRestartRequest.Raise();
     }
-    private void OnClickPause() {
+    public void OnClickPause() {
         onPauseRequest.Raise();
     }
 
