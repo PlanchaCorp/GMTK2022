@@ -16,6 +16,7 @@ public class DicesController : MonoBehaviour
     [SerializeField] private AtomEvent<int> onMoveRequested;
     [SerializeField] private AtomEvent<Vector2> onPlayerMovement;
     [SerializeField] private AtomBaseVariable<Vector2> playerMovement;
+    [SerializeField] private AtomBaseVariable<int> diceMovesCount;
 
     private int diceMovingCount = 0;
     private DiceDirections previousPlayerDirection = DiceDirections.NONE;
@@ -31,10 +32,15 @@ public class DicesController : MonoBehaviour
 
     private void OnDestroy() {
         dicesState.Reset();
+        diceMovesCount.Value = 0;
     }
 
     private void OnDiceMoveChange(bool isMoving) {
+        if (isMoving && diceMovingCount == 0)
+            diceMovesCount.Value++;
+
         diceMovingCount = Mathf.Max(diceMovingCount + (isMoving ? 1 : -1), 0);
+
         if (dicesState.Value == DicesStates.Idle && diceMovingCount > 0)
             dicesState.Dispatch(DicesTransitions.BeginMovement);
         else if (dicesState.Value == DicesStates.Moving && diceMovingCount == 0) {
@@ -67,7 +73,8 @@ public class DicesController : MonoBehaviour
             requestedDirection = previousPlayerDirection;
 
         previousPlayerDirection = requestedDirection;
-        if (requestedDirection != DiceDirections.NONE)
+        if (requestedDirection != DiceDirections.NONE) {
             onMoveRequested.Raise((int)requestedDirection);
+        }
     }
 }
