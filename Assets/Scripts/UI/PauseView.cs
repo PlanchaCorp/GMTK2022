@@ -7,12 +7,14 @@ using UniRx;
 
 public class PauseView : MonoBehaviour
 {
-    [SerializeField] private UIDocument uiDocument;
+    private readonly float FINISH_POPUP_DELAY = 0.7f;
 
+    [SerializeField] private UIDocument uiDocument;
 
     [SerializeField] private AtomEvent<Void> onRestartRequest;
     [SerializeField] private AtomEvent<Void> onMainMenuRequest;
     [SerializeField] private AtomEvent<Void> onNextLevelRequest;
+
     [SerializeField] private AtomEvent<string> onLevelStateChanged;
 
     private Button restartButton;    
@@ -34,7 +36,7 @@ public class PauseView : MonoBehaviour
         onLevelStateChanged.Observe()
             .Where(state => state == LevelStates.Completed)
             .TakeUntilDestroy(this)
-            .Subscribe(_ => OnFinish());
+            .Subscribe(_ => StartCoroutine(OnFinish()));
     }
     void OnEnable(){
         var root = uiDocument.rootVisualElement;
@@ -71,7 +73,8 @@ public class PauseView : MonoBehaviour
     private void ClosePause(){
         modal.style.display = DisplayStyle.None;
     }
-    private void OnFinish(){
+    private IEnumerator OnFinish() {
+        yield return new WaitForSeconds(FINISH_POPUP_DELAY);
         modal.style.display = DisplayStyle.Flex;
         title.text = "Finish.exe";
     }

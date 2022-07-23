@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityAtoms;
 using UnityAtoms.FSM;
+using UniRx;
 
 
 public class DicesController : MonoBehaviour
 {
 
     [SerializeField] private FiniteStateMachine dicesState;
+    [SerializeField] private FiniteStateMachine levelState;
 
     [SerializeField] private AtomEvent<bool> onDiceMoveChange;
     [SerializeField] private AtomEvent<int> onMoveRequested;
@@ -19,13 +21,15 @@ public class DicesController : MonoBehaviour
     private DiceDirections previousPlayerDirection = DiceDirections.NONE;
 
     private void Start() {
-        onPlayerMovement.Register(this.OnPlayerInput);
-        onDiceMoveChange.Register(this.OnDiceMoveChange);
+        onPlayerMovement.Observe()
+            .TakeUntilDestroy(this)
+            .Subscribe(this.OnPlayerInput);
+        onDiceMoveChange.Observe()
+            .TakeUntilDestroy(this)
+            .Subscribe(this.OnDiceMoveChange);
     }
 
     private void OnDestroy() {
-        onPlayerMovement.Unregister(this.OnPlayerInput);
-        onDiceMoveChange.Unregister(this.OnDiceMoveChange);
         dicesState.Reset();
     }
 
@@ -40,7 +44,7 @@ public class DicesController : MonoBehaviour
     }
 
     public void OnPlayerInput(Vector2 input) {
-        if (dicesState.Value != DicesStates.Idle || input.magnitude == 0)
+        if (dicesState.Value != DicesStates.Idle || levelState.Value != LevelStates.InProgress || input.magnitude == 0)
             return;
 
         DiceDirections requestedDirection = DiceDirections.NONE;

@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityAtoms;
+using UnityAtoms.BaseAtoms;
+using UniRx;
 
 
 public class DiceMovement : MonoBehaviour
 {
-    // The dice center lifts up a little while rolling
-    private const float ROLL_HEIGHT = 0.18f;
+    private const float ROLL_HEIGHT = 0.18f; // The dice center lifts up a little while rolling
     [SerializeField] private AtomBaseVariable<float> DICE_SPEED;
     [SerializeField] private AtomBaseVariable<float> ICE_SPEED_MODIFIER;
 
@@ -31,11 +32,11 @@ public class DiceMovement : MonoBehaviour
     
     [SerializeField] private AtomEvent<bool> onDiceMoveChange;
     [SerializeField] private AtomEvent<int> onMoveRequested;
-    [SerializeField] private AtomBaseVariable<bool> sensorTopReachable;
-    [SerializeField] private AtomBaseVariable<bool> sensorRightReachable;
-    [SerializeField] private AtomBaseVariable<bool> sensorDownReachable;
-    [SerializeField] private AtomBaseVariable<bool> sensorLeftReachable;
-    [SerializeField] private AtomBaseVariable<bool> isOnIce;
+    [SerializeField] private BoolReference sensorTopReachable;
+    [SerializeField] private BoolReference sensorRightReachable;
+    [SerializeField] private BoolReference sensorDownReachable;
+    [SerializeField] private BoolReference sensorLeftReachable;
+    [SerializeField] private BoolReference isOnIce;
 
     [SerializeField] private Transform diceModel;
 
@@ -52,11 +53,9 @@ public class DiceMovement : MonoBehaviour
 
     private void Start() {
         initialPosition = transform.position;
-        onMoveRequested.Register(this.OnMoveRequested);
-    }
-
-    private void OnDestroy() {
-        onMoveRequested.Unregister(this.OnMoveRequested);
+        onMoveRequested.Observe()
+            .TakeUntilDestroy(this)
+            .Subscribe(direction => this.OnMoveRequested(direction));
     }
 
     private void Update()
@@ -65,21 +64,25 @@ public class DiceMovement : MonoBehaviour
             MoveDice();
     }
 
-    private void OnMoveRequested(int directionRequested) {
+    private bool OnMoveRequested(int directionRequested, bool acceptMovingDice = false) {
         DiceDirections direction = (DiceDirections)directionRequested;
         if (
-            isMoving ||
+            (isMoving && !acceptMovingDice) ||
             (direction == DiceDirections.TOP && !sensorTopReachable.Value) ||
             (direction == DiceDirections.RIGHT && !sensorRightReachable.Value) ||
             (direction == DiceDirections.DOWN && !sensorDownReachable.Value) ||
             (direction == DiceDirections.LEFT && !sensorLeftReachable.Value)
         )
-            return;
+            return false;
         
         currentMovementDirection = direction;
-        isMoving = true;
         currentMovementProgress = 0;
-        onDiceMoveChange.Raise(true);
+
+        if (!isMoving)
+            onDiceMoveChange.Raise(true);
+        isMoving = true;
+
+        return true;
     }
 
     private void MoveDice() {
@@ -96,13 +99,19 @@ public class DiceMovement : MonoBehaviour
 
         // Stop movement since we reached 1 case
         if (currentMovementProgress >= 1) {
-            isGliding = false;
-            isMoving = false;
-            onDiceMoveChange.Raise(false);
+            bool keepMoving = false;
+
             // Keep gliding if on ice
             if (isOnIce.Value) {
-                isGliding = true;
-                OnMoveRequested((int)currentMovementDirection);
+                keepMoving = OnMoveRequested((int)currentMovementDirection, true);
+                if (keepMoving)
+                    isGliding = true;
+            }
+
+            if (!keepMoving) {
+                isMoving = false;
+                isGliding = false;
+                onDiceMoveChange.Raise(false);
             }
         }
     }

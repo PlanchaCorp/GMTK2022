@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityAtoms;
+using UnityAtoms.BaseAtoms;
 
 public class DiceSensor : MonoBehaviour
 {
-    [SerializeField] AtomBaseVariable<bool> sensorReachable;
+    [SerializeField] BoolReference sensorReachable;
 
     private int groundContactCount = 0;
     private int diceContactCount = 0;
