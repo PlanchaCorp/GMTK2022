@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityAtoms;
+using UnityAtoms.BaseAtoms;
 using UniRx;
 
 
 public class DiceMovement : MonoBehaviour
 {
-    // The dice center lifts up a little while rolling
-    private const float ROLL_HEIGHT = 0.18f;
+    private const float ROLL_HEIGHT = 0.18f; // The dice center lifts up a little while rolling
     [SerializeField] private AtomBaseVariable<float> DICE_SPEED;
     [SerializeField] private AtomBaseVariable<float> ICE_SPEED_MODIFIER;
 
@@ -32,11 +32,11 @@ public class DiceMovement : MonoBehaviour
     
     [SerializeField] private AtomEvent<bool> onDiceMoveChange;
     [SerializeField] private AtomEvent<int> onMoveRequested;
-    [SerializeField] private AtomBaseVariable<bool> sensorTopReachable;
-    [SerializeField] private AtomBaseVariable<bool> sensorRightReachable;
-    [SerializeField] private AtomBaseVariable<bool> sensorDownReachable;
-    [SerializeField] private AtomBaseVariable<bool> sensorLeftReachable;
-    [SerializeField] private AtomBaseVariable<bool> isOnIce;
+    [SerializeField] private BoolReference sensorTopReachable;
+    [SerializeField] private BoolReference sensorRightReachable;
+    [SerializeField] private BoolReference sensorDownReachable;
+    [SerializeField] private BoolReference sensorLeftReachable;
+    [SerializeField] private BoolReference isOnIce;
 
     [SerializeField] private Transform diceModel;
 
