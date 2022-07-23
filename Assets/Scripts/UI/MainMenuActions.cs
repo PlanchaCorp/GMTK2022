@@ -45,19 +45,15 @@ public class MainMenuActions : MonoBehaviour
     }
 
     private void OnClickBegin() {
-        Debug.Log("Begin!");
         sceneDispatcher.LoadLevelWithIndex(0,0);
     }
     private void OnClickMeadowSelect() {
-        Debug.Log("Select Meadow!");
         openFolder.Raise("Meadow");
     }
     private void OnClickToundraSelect() {
-        Debug.Log("Select Toundra!");
         openFolder.Raise("Toundra");
     }
     private void OnClickBeachSelect() {
-        Debug.Log("Select Beach!");
         openFolder.Raise("Beach");
     }
 

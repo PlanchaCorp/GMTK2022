@@ -13,10 +13,4 @@ MonoBehaviour:
   m_Name: Camel
   m_EditorClassIdentifier: 
   sceneName: M_Camel
-  shortDescription: Level one, easy one
-  music: {fileID: 0}
-  musicVolume: 0
-  numberOfEnd: 1
-  world: 0
-  cameraSize: 3
-  LightColor: {r: 0.8666667, g: 0.90588236, b: 0.69803923, a: 1}
+  shortDescription: 

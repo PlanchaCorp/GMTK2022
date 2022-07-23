@@ -30,7 +30,6 @@ public class LevelMenuAction : MonoBehaviour
         .Subscribe(s => OpenWindow(s));
     }
     void OnEnable() {
-        Debug.Log("level selection enable");
         var root = uiDocument.rootVisualElement;
         levelSelectionWindow =  root.Q<VisualElement>("LevelSelect");
         title =  root.Q<Label>("Title");
@@ -42,7 +41,6 @@ public class LevelMenuAction : MonoBehaviour
     }
 
     private void onClickButton(string levelIndex){
-        Debug.Log(levelIndex);
         sceneDispatcher.LoadLevelWithIndex(worldIndex,int.Parse(levelIndex));
     }
 

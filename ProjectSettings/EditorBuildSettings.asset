@@ -6,11 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Levels/AbstractMeadow/M_Mantis.unity
-    guid: 9039c3c7943c322f1b653ec651420bfe
-  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 7d0b56c9652a2db4c81f84a06fa4b9a2
+  - enabled: 1
+    path: Assets/Scenes/Levels/AbstractMeadow/M_Mantis.unity
+    guid: 9039c3c7943c322f1b653ec651420bfe
   - enabled: 1
     path: Assets/Scenes/Levels/AbstractMeadow/M_Camel.unity
     guid: 4276efc39c23b24e7a2146ce6722fc8a

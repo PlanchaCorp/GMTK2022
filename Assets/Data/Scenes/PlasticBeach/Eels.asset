@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 21a3f1954d859ed45974b24e3fe6d5ea, type: 3}
-  m_Name: Eel
+  m_Name: Eels
   m_EditorClassIdentifier: 
-  sceneName: P_Eel
+  sceneName: P_Eels
   shortDescription: 
