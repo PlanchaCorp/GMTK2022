@@ -25,9 +25,9 @@ public class LevelMenuAction : MonoBehaviour
     
 
     private void Awake(){
-        openFolder.Observe().
-        TakeUntilDestroy(this)
-        .Subscribe(s => OpenWindow(s));
+        openFolder.Observe()
+            .TakeUntilDestroy(this)
+            .Subscribe(s => OpenWindow(s));
     }
     void OnEnable() {
         var root = uiDocument.rootVisualElement;

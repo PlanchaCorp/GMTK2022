@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityAtoms;
 using UnityAtoms.FSM;
 using UniRx;
@@ -7,7 +6,7 @@ using UniRx;
 public class LevelManager : MonoBehaviour
 {
     [SerializeField] private SceneDispatcher sceneDispatcher;
-    [SerializeField] private FiniteStateMachineReference levelState;
+    [SerializeField] private FiniteStateMachine levelState;
 
     [SerializeField] private AtomEvent<string> onLevelStateChange;
     [SerializeField] private AtomEvent<Void> onRestartRequest;
@@ -36,15 +35,16 @@ public class LevelManager : MonoBehaviour
         
     }
 
-    private void OnDestroy(){
-        levelState.Machine.Reset();
+    private void OnDestroy() {
+        levelState.Reset();
+        Time.timeScale = 1;
     }
 
     private void OnPauseRequest(){
-        if(levelState.Machine.Value == LevelStates.InProgress){
-            levelState.Machine.Dispatch(LevelTransition.Pause);
-        } else if (levelState.Machine.Value == LevelStates.Paused){
-            levelState.Machine.Dispatch(LevelTransition.Unpause);
+        if(levelState.Value == LevelStates.InProgress){
+            levelState.Dispatch(LevelTransition.Pause);
+        } else if (levelState.Value == LevelStates.Paused){
+            levelState.Dispatch(LevelTransition.Unpause);
         }
     }
 

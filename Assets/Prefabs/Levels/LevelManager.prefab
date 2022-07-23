@@ -45,10 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneDispatcher: {fileID: 11400000, guid: 3ebbba1e7d06c764c872837cf75a2e81, type: 2}
-  levelState:
-    _usage: 0
-    _fsm: {fileID: 11400000, guid: 1a5b2f3ad966185d6a8180bfe3106e3c, type: 2}
-    _fsmInstancer: {fileID: 0}
+  levelState: {fileID: 11400000, guid: 1a5b2f3ad966185d6a8180bfe3106e3c, type: 2}
   onLevelStateChange: {fileID: 11400000, guid: ccaa6f23d1e5af9d797461bc970a8eb0, type: 2}
   onRestartRequest: {fileID: 11400000, guid: c2a58cc77e849c553bf0e319ea6fdd02, type: 2}
   onNextLevelRequest: {fileID: 11400000, guid: fe1d336f6ec767f41829db597864ee6b, type: 2}
