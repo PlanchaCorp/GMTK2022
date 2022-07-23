@@ -52,6 +52,7 @@ MonoBehaviour:
   onMoveRequested: {fileID: 11400000, guid: a5db49c4eb553af66a48694f8042faad, type: 2}
   onPlayerMovement: {fileID: 11400000, guid: c5dab98fd87c9bf43b5231c9a9dd05a3, type: 2}
   playerMovement: {fileID: 11400000, guid: eedba12b6d26cf8cdb66ba0edd6a4550, type: 2}
+  diceMovesCount: {fileID: 11400000, guid: cccb3d7670327134c93225cbc6c0e475, type: 2}
 --- !u!114 &6434077880274311657
 MonoBehaviour:
   m_ObjectHideFlags: 0
