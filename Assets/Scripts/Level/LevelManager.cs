@@ -50,7 +50,7 @@ public class LevelManager : MonoBehaviour
 
     private void OnLevelStateChange(string state) {
         if (state == LevelStates.Completed) {
-            Time.timeScale = 0;
+            Time.timeScale = 1;
         } else if (state == LevelStates.Paused) {
             Time.timeScale = 0;
         } else if (state == LevelStates.InProgress) {

@@ -2353,7 +2353,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1042186814845469685, guid: 03be7aa672a357fc98fcf6926784cf83, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8357375249642601260, guid: 03be7aa672a357fc98fcf6926784cf83, type: 3}
       propertyPath: m_Name
@@ -2361,7 +2361,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8357375249642601260, guid: 03be7aa672a357fc98fcf6926784cf83, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8696605010641215894, guid: 03be7aa672a357fc98fcf6926784cf83, type: 3}
       propertyPath: m_RootOrder
@@ -2928,7 +2928,7 @@ GameObject:
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!483693784 &6195612061212689976
 TilemapRenderer:
