@@ -32,7 +32,7 @@ public class LevelManager : MonoBehaviour
         onPauseRequest.Observe()
             .TakeUntilDestroy(this)
             .Subscribe(_ => this.OnPauseRequest());
-        
+        levelState.Reset();
     }
 
     private void OnDestroy() {
